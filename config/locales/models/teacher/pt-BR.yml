@@ -1,0 +1,11 @@
+pt-BR:
+    activerecord:
+        models:
+            teacher: "Educador"
+        attributes:
+            teacher:
+                email: "Email"
+                name: "Nome"
+                last_name: "Sobrenome"
+                password: "Senha"
+                password_confirmation: Confirmação da senha

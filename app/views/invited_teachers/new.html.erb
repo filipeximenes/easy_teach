@@ -1,0 +1,8 @@
+convide:
+<%= form_tag(:controller => "invited_teachers", 
+                :action => "create", 
+                :method => "post",
+                :classroom_slug => @classroom_slug) do %>
+  <%= text_field_tag 'emails'%>
+  <%= submit_tag 'Save' %>
+<% end %>

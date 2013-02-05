@@ -1,0 +1,7 @@
+pt-BR:
+    activerecord:
+        models:
+            index: ""
+        attributes:
+            index:
+                slug: "Link"
