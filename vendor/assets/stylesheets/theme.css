@@ -929,102 +929,102 @@ figure {
 /* THEME PATTERNS */
 /* -------------- */
 .theme-pattern-lightmesh .section.alt, .theme-pattern-lightmesh.alt {
-  background-image: url(../images/patterns/lghtmesh.png);
+  background-image: url(/assets/patterns/lghtmesh.png);
   background-size: 256px 256px;
 }
 
 .theme-pattern-bedge-grunge .section.alt, .theme-pattern-bedge-grunge.alt {
-  background-image: url(../images/patterns/bedge_grunge.png);
+  background-image: url(/assets/patterns/bedge_grunge.png);
   background-size: 588px  375px;
 }
 
 .theme-pattern-grid .section.alt, .theme-pattern-grid.alt {
-  background-image: url(../images/patterns/grid.png);
+  background-image: url(/assets/patterns/grid.png);
   background-size: 310px  310px;
 }
 
 .theme-pattern-noisy-grid .section.alt, .theme-pattern-noisy-grid.alt {
-  background-image: url(../images/patterns/noisy_grid.png);
+  background-image: url(/assets/patterns/noisy_grid.png);
   background-size: 150px  150px;
 }
 
 .theme-pattern-subtle-grey .section.alt, .theme-pattern-subtle-grey.alt {
-  background-image: url(../images/patterns/grey.png);
+  background-image: url(/assets/patterns/grey.png);
   background-size: 397px  322px;
 }
 
 .theme-pattern-retina-wood .section.alt, .theme-pattern-retina-wood.alt {
-  background-image: url(../images/patterns/retina_wood.png);
+  background-image: url(/assets/patterns/retina_wood.png);
   background-size: 512px 512px;
 }
 
 .theme-pattern-noise-lines .section.alt, .theme-pattern-noise-lines.alt {
-  background-image: url(../images/patterns/noise_lines.png);
+  background-image: url(/assets/patterns/noise_lines.png);
   background-size: 60px 59px;
 }
 
 .theme-pattern-tiny-grid .section.alt, .theme-pattern-tiny-grid.alt {
-  background-image: url(../images/patterns/tiny_grid.png);
+  background-image: url(/assets/patterns/tiny_grid.png);
   background-size: 26px 26px;
 }
 
 .theme-pattern-clean-paper .section.alt, .theme-pattern-clean-paper.alt {
-  background-image: url(../images/patterns/extra_clean_paper.png);
+  background-image: url(/assets/patterns/extra_clean_paper.png);
   background-size: 512px 512px;
 }
 
 .theme-pattern-farmer .section.alt, .theme-pattern-farmer.alt {
-  background-image: url(../images/patterns/farmer.png);
+  background-image: url(/assets/patterns/farmer.png);
   background-size: 349px 349px;
 }
 
 .theme-pattern-project-papper .section.alt, .theme-pattern-project-papper.alt {
-  background-image: url(../images/patterns/project_papper.png);
+  background-image: url(/assets/patterns/project_papper.png);
   background-size: 105px 105px;
 }
 
 .theme-pattern-concrete-wall .section.alt, .theme-pattern-concrete-wall.alt {
-  background-image: url(../images/patterns/concrete_wall_2.png);
+  background-image: url(/assets/patterns/concrete_wall_2.png);
   background-size: 597px 545px;
 }
 
 .theme-pattern-wavecut .section.alt, .theme-pattern-wavecut.alt {
-  background-image: url(../images/patterns/wavecut.png);
+  background-image: url(/assets/patterns/wavecut.png);
   background-size: 162px 15px;
 }
 
 .theme-pattern-little-pluses .section.alt, .theme-pattern-little-pluses.alt {
-  background-image: url(../images/patterns/little_pluses.png);
+  background-image: url(/assets/patterns/little_pluses.png);
   background-size: 300px 300px;
 }
 
 .theme-pattern-light-honeycomp .section.alt, .theme-pattern-light-honeycomp.alt {
-  background-image: url(../images/patterns/light_honeycomb.png);
+  background-image: url(/assets/patterns/light_honeycomb.png);
   background-size: 270px 289px;
 }
 
 .theme-pattern-old-mathematics .section.alt, .theme-pattern-old-mathematics.alt {
-  background-image: url(../images/patterns/old_mathematics.png);
+  background-image: url(/assets/patterns/old_mathematics.png);
   background-size: 200px 200px;
 }
 
 .theme-pattern-45-degree-fabric .section.alt, .theme-pattern-45-degree-fabric.alt {
-  background-image: url(../images/patterns/45degreee_fabric.png);
+  background-image: url(/assets/patterns/45degreee_fabric.png);
   background-size: 315px 315px;
 }
 
 .theme-pattern-strange-bullseyes .section.alt, .theme-pattern-strange-bullseyes.alt {
-  background-image: url(../images/patterns/strange_bullseyes.png);
+  background-image: url(/assets/patterns/strange_bullseyes.png);
   background-size: 300px 300px;
 }
 
 .theme-pattern-diamond-upholstery .section.alt, .theme-pattern-diamond-upholstery.alt {
-  background-image: url(../images/patterns/diamond_upholstery.png);
+  background-image: url(/assets/patterns/diamond_upholstery.png);
   background-size: 200px 200px;
 }
 
 .theme-pattern-subtle-stripes .section.alt, .theme-pattern-subtle-stripes.alt {
-  background-image: url(../images/patterns/subtle_stripes.png);
+  background-image: url(/assets/patterns/subtle_stripes.png);
   background-size: 40px 40px;
 }
 
@@ -1441,82 +1441,82 @@ figure {
 /* retina displays backgrounds */
 @media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
   .theme-pattern-lightmesh .section.alt, .theme-pattern-lightmesh.alt {
-    background-image: url(../images/patterns/lghtmesh_@2X.png);
+    background-image: url(/assets/patterns/lghtmesh_@2X.png);
   }
 
   .theme-pattern-bedge-grunge .section.alt, .theme-pattern-bedge-grunge.alt {
-    background-image: url(../images/patterns/bedge_grunge_@2X.png);
+    background-image: url(/assets/patterns/bedge_grunge_@2X.png);
   }
 
   .theme-pattern-grid .section.alt, .theme-pattern-grid.alt {
-    background-image: url(../images/patterns/grid_@2X.png);
+    background-image: url(/assets/patterns/grid_@2X.png);
   }
 
   .theme-pattern-noisy-grid .section.alt, .theme-pattern-noisy-grid.alt {
-    background-image: url(../images/patterns/noisy_grid_@2X.png);
+    background-image: url(/assets/patterns/noisy_grid_@2X.png);
   }
 
   .theme-pattern-subtle-grey .section.alt, .theme-pattern-subtle-grey.alt {
-    background-image: url(../images/patterns/grey_@2X.png);
+    background-image: url(/assets/patterns/grey_@2X.png);
   }
 
   .theme-pattern-retina-wood .section.alt, .theme-pattern-retina-wood.alt {
-    background-image: url(../images/patterns/retina_wood_@2X.png);
+    background-image: url(/assets/patterns/retina_wood_@2X.png);
   }
 
   .theme-pattern-noise-lines .section.alt, .theme-pattern-noise-lines.alt {
-    background-image: url(../images/patterns/noise_lines_@2X.png);
+    background-image: url(/assets/patterns/noise_lines_@2X.png);
   }
 
   .theme-pattern-tiny-grid .section.alt, .theme-pattern-tiny-grid.alt {
-    background-image: url(../images/patterns/tiny_grid_@2X.png);
+    background-image: url(/assets/patterns/tiny_grid_@2X.png);
   }
 
   .theme-pattern-clean-paper .section.alt, .theme-pattern-clean-paper.alt {
-    background-image: url(../images/patterns/extra_clean_paper_@2X.png);
+    background-image: url(/assets/patterns/extra_clean_paper_@2X.png);
   }
 
   .theme-pattern-farmer .section.alt, .theme-pattern-farmer.alt {
-    background-image: url(../images/patterns/farmer_@2X.png);
+    background-image: url(/assets/patterns/farmer_@2X.png);
   }
 
   .theme-pattern-project-papper .section.alt, .theme-pattern-project-papper.alt {
-    background-image: url(../images/patterns/project_papper_@2X.png);
+    background-image: url(/assets/patterns/project_papper_@2X.png);
   }
 
   .theme-pattern-concrete-wall .section.alt, .theme-pattern-concrete-wall.alt {
-    background-image: url(../images/patterns/concrete_wall_2_@2X.png);
+    background-image: url(/assets/patterns/concrete_wall_2_@2X.png);
   }
 
   .theme-pattern-wavecut .section.alt, .theme-pattern-wavecut.alt {
-    background-image: url(../images/patterns/wavecut_@2X.png);
+    background-image: url(/assets/patterns/wavecut_@2X.png);
   }
 
   .theme-pattern-little-pluses .section.alt, .theme-pattern-little-pluses.alt {
-    background-image: url(../images/patterns/little_pluses_@2X.png);
+    background-image: url(/assets/patterns/little_pluses_@2X.png);
   }
 
   .theme-pattern-light-honeycomp .section.alt, .theme-pattern-light-honeycomp.alt {
-    background-image: url(../images/patterns/light_honeycomb_@2X.png);
+    background-image: url(/assets/patterns/light_honeycomb_@2X.png);
   }
 
   .theme-pattern-old-mathematics .section.alt, .theme-pattern-old-mathematics.alt {
-    background-image: url(../images/patterns/old_mathematics_@2X.png);
+    background-image: url(/assets/patterns/old_mathematics_@2X.png);
   }
 
   .theme-pattern-45-degree-fabric .section.alt, .theme-pattern-45-degree-fabric.alt {
-    background-image: url(../images/patterns/45degreee_fabric_@2X.png);
+    background-image: url(/assets/patterns/45degreee_fabric_@2X.png);
   }
 
   .theme-pattern-strange-bullseyes .section.alt, .theme-pattern-strange-bullseyes.alt {
-    background-image: url(../images/patterns/strange_bullseyes_@2X.png);
+    background-image: url(/assets/patterns/strange_bullseyes_@2X.png);
   }
 
   .theme-pattern-diamond-upholstery .section.alt, .theme-pattern-diamond-upholstery.alt {
-    background-image: url(../images/patterns/diamond_upholstery_@2X.png);
+    background-image: url(/assets/patterns/diamond_upholstery_@2X.png);
   }
 
   .theme-pattern-subtle-stripes .section.alt, .theme-pattern-subtle-stripes.alt {
-    background-image: url(../images/patterns/subtle_stripes_@2X.png);
+    background-image: url(/assets/patterns/subtle_stripes_@2X.png);
   }
 }

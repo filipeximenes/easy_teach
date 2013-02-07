@@ -11,7 +11,7 @@ EasyTeach::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { :host => 'http://easyteach.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'http://easyteach.herokuapp.com' }
 
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -24,7 +24,7 @@ EasyTeach::Application.configure do
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   # default: config.serve_static_assets = false
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
