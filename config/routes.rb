@@ -1,19 +1,20 @@
 EasyTeach::Application.routes.draw do
-  get "static_pages/home"
-
   devise_for :teachers
+  
+  root :to => "static_pages#root"
 
-  resources :teachers, only: [:new, :create, :edit]
-  resources :classrooms, only: [:index, :new, :create, :edit]
-  resources :indices, only: []
+  resources :teachers, only: [:new, :create, :edit, :update]
+  resources :classrooms, only: [:show, :new, :create, :update, :edit, :destroy]
+  resources :indices, only: [:show]
   resources :invited_teachers, only: [:new, :create]
+  resources :enrolled_emails, only: [:edit, :create, :update, :destroy]
 
   match '/home', to: "static_pages#home", as: 'home'
 
-  match '/:slug', to: "indices#show", as: 'show_indexable', via: :get
-  match '/:indexable_slug/:classroom_slug', to: "classrooms#show", as: 'show_classroom', via: :get
-
-  root :to => "static_pages#root"
+  match '/:indexable_slug', to: "indices#indexable_page", as: 'indexable_page', via: :get
+  match '/:indexable_slug/:classroom_slug', to: "classrooms#classroom_page", as: 'classroom_page', via: :get
+  match '/:indexable_slug/:classroom_slug/enroll', to: "enrolled_emails#new", as: 'new_enrolled_email', via: :get
+  # match '/:indexable_slug/:classroom_slug/enroll', to: "enrolled_emails#new", as: 'enrolled_email', via: :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

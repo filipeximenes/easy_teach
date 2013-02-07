@@ -1,0 +1,19 @@
+<li>
+  <div class="row-fluid ">
+      <div class="span4">
+        <%= enrolled_email.name %>
+      </div>
+      <div class="span4">
+        <%= enrolled_email.email %>
+      </div>
+      <div class="span3 pull-right">
+        <% if enrolled_email.confirmed %>
+          <%= link_to "editar", edit_enrolled_email_path(enrolled_email) %>        
+        <% else %>
+          <%= link_to "aceitar", edit_enrolled_email_path(enrolled_email), style: "color: green" %>
+        <% end %>
+        | <%= link_to "remover", enrolled_email, style: "color: red", method: :delete %>
+    </div>
+  </div>
+  <hr>
+</li>

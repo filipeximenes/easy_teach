@@ -17,6 +17,12 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
+#  free_class_counter     :integer          default(1)
+#  referral_count         :integer          default(0)
 #
 
 # Include default devise modules. Others available are:
@@ -24,6 +30,8 @@
 # :lockable, :timeoutable and :omniauthable
 
 class Teacher < ActiveRecord::Base
+  @@REFERRALS_TO_FREE_CLASSROOM = 5
+
   devise :database_authenticatable, :recoverable, :confirmable,
         :rememberable, :trackable, :validatable
   attr_accessible :email, :password, :password_confirmation, 
@@ -35,8 +43,23 @@ class Teacher < ActiveRecord::Base
   validates :name, presence: true
   validates :last_name, presence: true
   validates :index, presence: true
+  validates :free_class_counter, :inclusion => 1..5
 
   def classrooms
     self.index.classrooms
+  end
+
+  def full_name
+    self.name + " " + self.last_name
+  end
+
+  def referral_sinup
+    self.referral_count += 1
+    if (self.referral_count == @@REFERRALS_TO_FREE_CLASSROOM \
+      && self.free_class_counter < 5)
+      self.free_class_counter += 1
+      self.referral_count = 0
+    end
+    self.save
   end
 end

@@ -1,14 +1,11 @@
 class IndicesController < ApplicationController
+  before_filter :existing_index,   only: [:indexable_page]
+
   def show
-    if indexable_signed_in? and current_index.slug == params[:slug]
-      @indexable = current_indexable
-    else
-      @indexable = Index.find_by_slug(params[:slug])
-    end
-    if !@indexable.nil?
-      @classrooms = @indexable.classrooms
-    else
-      redirect_to '/404.html'
-    end
+    @index = Index.find(params[:id]) || not_found
+    redirect_to indexable_page_path @index.slug
+  end
+
+  def indexable_page
   end
 end

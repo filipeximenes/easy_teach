@@ -1,0 +1,23 @@
+<section class="section alt" id="">
+  <div class="container">
+    <div class="modal modal-login">
+      <div class="well">
+        <h2>Turma</h2>
+        <%= form_for @classroom do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "full-width" %>
+
+          <%= f.label :slug %>
+          <%= f.text_field :slug, class: "full-width" %>
+
+          <%= label_tag t(:student_email_list) %>
+          <%= text_field_tag :student_email_list, nil, class: "full-width", placeholder:"exemplo@email.com, outro@gmail.com", %>
+
+          <%= f.submit t(:send), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

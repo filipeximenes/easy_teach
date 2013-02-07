@@ -1,0 +1,8 @@
+pt-BR:
+    activerecord:
+        models:
+            classroom: "Turma"
+        attributes:
+            classroom:
+                name: "Nome da turma"
+                slug: "Link da turma"

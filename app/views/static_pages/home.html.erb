@@ -1,43 +1,40 @@
-<div clas="row" style="padding-top: 100px;">
-  <span class="span4 center separate">
-    <h2><%= t :comunicate %></h2>
-    <p>
-      <%= t :comunicate_text %>
-    </p>
-  </span>
-  <span class="span4 center">
-    <h2><%= t :interact %></h2>
-    <p>
-      <%= t :interact_text %>
-    </p>
-  </span>
-  <span class="span3 hero-unit" id="login_box">
-    <h4><%= t :fill_signup_form %></h4>
-    <%= form_for @teacher do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.fields_for :index do |builder| %>
-        <%= builder.label :slug %>
-        <%= builder.text_field :slug %>
-      <% end %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation%>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit t(:sign_up), class: "btn btn-primary" %>
-    <% end %>
-  </span>
-</div>
-
+<section class="section alt" id="promo">
+  <div class="container">
+    <div class="carousel slide span7" id="myCarousel">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div class="active item">
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="hero-unit pull-center">
+                <h1>Comunique-se com seus Alunos</h1>
+                <p>Envie atividades, notifique mudanças no calendário, envie lembretes sobre provas e trabalhos, mande e-mail para toda a turma.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="hero-unit pull-center">
+                <h1>Interaja com a Turma</h1>
+                <p>Receba e responda dúvidas, envie artigos e textos on-line, engaje seus alunos tranzendo conteúdo interativo. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" data-slide="prev" href="#myCarousel">&lsaquo;</a>
+      <a class="carousel-control right" data-slide="next" href="#myCarousel">&rsaquo;</a>
+    </div>
+    <div class="span4">
+      <div class="well row-fluid">
+        <h3>
+          Faça seu cadastro
+        </h3>
+        <%= render "teachers/teacher_form" %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<section class="section">
+  <div class="container">
+    <% if page_owned_by_current_indexable? %>
+      <span class="pull-right">
+        divulgue o link da turma: <%= link_to classroom_page_path(@page_index.slug,@page_classroom.slug, :only_path => false) %>
+      </span>
+    <% end %>
+    <div class="row-fluid">
+      <aside class="span3 sidebar">
+        <div class="sidebar-widget">
+          <h2 class="sidebar-header">
+            <%= @page_classroom.name %>
+          </h2>
+          <ul class="unstyled">
+            <li>
+              <h4>
+                Professor: <%= @page_indexable.full_name %>
+              </h4>
+              <h4>
+                Alunos nesta turma: <%= @page_classroom.enrolled_emails.count %>
+              </h4>
+              <% if page_owned_by_current_indexable? %>
+                <h4>
+                  <%= link_to "Editar Turma", edit_classroom_path(@page_classroom)  %>
+                </h4>
+                <h4>
+                  <%= link_to "Enviar mensagem para todos" %>
+                </h4>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <% if page_owned_by_current_indexable? %>
+        <%= render partial: "classrooms/teacher_classroom_page", locals: { current_showing: current_showing } %>
+      <% else %>
+        <%= render partial: "classrooms/student_classroom_page", locals: { current_showing: current_showing } %>
+      <% end %>
+    </div>
+  </div>
+</section>

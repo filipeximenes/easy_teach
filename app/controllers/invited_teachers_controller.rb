@@ -2,7 +2,6 @@ class InvitedTeachersController < ApplicationController
   before_filter :authenticate_teacher!
 
   def new
-    @classroom_slug = params[:classroom_slug]
   end
 
   def create
@@ -14,11 +13,12 @@ class InvitedTeachersController < ApplicationController
     if emails.length > 0
       # flash[:success] = "Welcome to the Sample App!"
     end
-    if !params[:classroom_slug].nil? and !params[:classroom_slug].empty?
-      redirect_to show_classroom_path(indexable_slug: current_index.slug,
-                                classroom_slug: params[:classroom_slug])
+    if !teacher_session[:created_classroom].nil?
+      classroom_id = teacher_session[:created_classroom]
+      teacher_session.delete :created_classroom
+      redirect_to Classroom.find(classroom_id)
     else
-      redirect_to current_indexable_path
+      redirect_to current_index
     end
   end
 end

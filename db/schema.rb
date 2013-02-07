@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205012105) do
+ActiveRecord::Schema.define(:version => 20130205163823) do
 
   create_table "classrooms", :force => true do |t|
     t.integer  "index_id"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(:version => 20130205012105) do
   end
 
   add_index "classrooms", ["index_id", "slug"], :name => "index_classrooms_on_index_id_and_slug", :unique => true
+
+  create_table "enrolled_emails", :force => true do |t|
+    t.integer  "classroom_id"
+    t.string   "email"
+    t.string   "name"
+    t.boolean  "confirmed",    :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "enrolled_emails", ["classroom_id", "email"], :name => "index_enrolled_emails_on_classroom_id_and_email", :unique => true
 
   create_table "indices", :force => true do |t|
     t.string   "slug"
@@ -36,13 +47,6 @@ ActiveRecord::Schema.define(:version => 20130205012105) do
   create_table "invited_teachers", :force => true do |t|
     t.integer  "teacher_id"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "students", :force => true do |t|
-    t.string   "name"
-    t.string   "last_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -66,8 +70,11 @@ ActiveRecord::Schema.define(:version => 20130205012105) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "free_class_counter",     :default => 1
+    t.integer  "referral_count",         :default => 0
   end
 
+  add_index "teachers", ["confirmation_token"], :name => "index_teachers_on_confirmation_token", :unique => true
   add_index "teachers", ["email"], :name => "index_teachers_on_email", :unique => true
   add_index "teachers", ["reset_password_token"], :name => "index_teachers_on_reset_password_token", :unique => true
 

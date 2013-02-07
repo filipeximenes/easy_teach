@@ -15,6 +15,7 @@ class Classroom < ActiveRecord::Base
   belongs_to :index
 
   has_one :teacher, :through => :index, :source => :indexable, :source_type => Teacher
+  has_many :enrolled_emails
 
   validates_uniqueness_of :slug, scope: [:index_id],
                                   case_sensitive: false

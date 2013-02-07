@@ -1,0 +1,27 @@
+<!-- Page Header -->
+<header id="masthead">
+  <nav class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <h1 class="brand">
+          <%= link_to "Easy_Teach", home_path %>
+        </h1>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+            <% if teacher_signed_in? %>
+              <li class=""><%= link_to "Turmas", current_index %>
+              <li class=""><%= link_to "Sair", destroy_teacher_session_path, :method => :delete %>
+            <% else %>
+              <li class=""><%= link_to "Entrar", teacher_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

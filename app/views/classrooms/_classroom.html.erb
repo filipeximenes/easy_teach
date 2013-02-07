@@ -1,3 +1,14 @@
 <li>
-  <%= link_to classroom.name, show_classroom_path(@indexable.index.slug, classroom.slug) %>
+  <div class="row-fluid ">
+      <div class="span4 ">
+        <h3><%= link_to classroom.name, classroom %></h3>
+      </div>
+      <% if page_owned_by_current_indexable? %> 
+        <div class="span3 pull-right">
+          <%= link_to "editar", edit_classroom_path(classroom) %> | 
+          <%= link_to "adicionar alunos ", edit_classroom_path(classroom) %>
+        </div>
+      <% end %>
+  </div>
+  <hr>
 </li>

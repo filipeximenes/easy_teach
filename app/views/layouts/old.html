@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "sample app", '#', id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home",    '#' %></li>
+              <li><%= link_to "Help",    '#' %></li>
+              <li><%= link_to "Sign in", '#' %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
+
+  <!-- <link href="images/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114" />
+  <link href="images/apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72" />
+  <link href="images/apple-touch-icon-57x57-precomposed.png" rel="apple-touch-icon-precomposed" /> -->
+  <!-- <link href="stylesheets/responsive.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/font-awesome.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/theme.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/fonts.css" media="screen" rel="stylesheet" type="text/css" /> -->
+
+  <%= link_to image_tag "apple-touch-icon-114x114-precomposed" %>
+  <%= link_to image_tag "apple-touch-icon-72x72-precomposed" %>
+  <%= link_to image_tag "apple-touch-icon-57x57-precomposed" %>
+  <%= stylesheet_link_tag "theme" %>
+  <%= stylesheet_link_tag "fonts" %>
+  <%= stylesheet_link_tag "font-awesome" %>
+  <%= csrf_meta_tags %>
+
+  <script src="javascripts/jquery.min.js" type="text/javascript"></script>
+    <script src="javascripts/bootstrap.js" type="text/javascript"></script>
+
+<div class="span8">
+                    <section>
+                      <h1>Sua aula continua depois que o sinal toca</h1>
+                    </section>
+                    <section>
+                      <div class="span6">
+                        <div class="well">
+                          <h3>
+                            Comunique-se
+                          </h3>
+                          <p>
+                            Envie atividades.
+                          </p>
+                          <p>
+                            Notifique mudanças no calendário.
+                          </p>
+                          <p>
+                            Envie lembretes sobre provas e trabalhos.
+                          </p>
+                          <p>
+                            Mande e-mail para toda a turma
+                          </p>
+                        </div>
+                      </div>
+                      <div class="span6">
+                        <div class="well">
+                          <h3>
+                            Interaja
+                          </h3>
+                          <p>
+                            Receba e responda dúvidas.
+                          </p>
+                          <p>
+                            Envie artigos e textos.
+                          </p>
+                          <p>
+                            Engaje seus aulunos tranzendo conteúdo interativo.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="span4">
+                    <div class="well">
+                      <h3>
+                        Faça seu cadastro
+                      </h3>
+                      <%= form_for @teacher do |f| %>
+                        <%= render 'shared/error_messages', object: f.object %>
+
+                        <%= f.label :name %>
+                        <%= f.text_field :name %>
+
+                        <%= f.label :last_name %>
+                        <%= f.text_field :last_name %>
+
+                        <%= f.label :email %>
+                        <%= f.text_field :email %>
+
+                        <%= f.fields_for :index do |builder| %>
+                          <%= builder.label :slug %>
+                          <%= builder.text_field :slug %>
+                        <% end %>
+
+                        <%= f.label :password %>
+                        <%= f.password_field :password %>
+
+                        <%= f.label :password_confirmation%>
+                        <%= f.password_field :password_confirmation %>
+
+                        <% if @referral %>
+                          <%= hidden_field_tag "invtf", @referral %>
+                        <% end %>
+                        <br>
+                        <%= f.submit t(:sign_up), class: "btn btn-primary" %>
+                      <% end %>
+                    </div>
+                  </div>
+
+
+  <div class="row-fluid">
+            <div class="span4">
+              <div class="well">
+                <h3>
+                  Strategy & consulting
+                </h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                </p>
+              </div>
+            </div>
+            <div class="span4">
+              <div class="well">
+                <h3>
+                  Web design
+                </h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                </p>
+              </div>
+            </div>
+            <div class="span4">
+              <div class="well">
+                <h3>
+                  Content Strategy
+                </h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                </p>
+              </div>
+            </div>
+          </div>
+
+          :html => { class: "form-horizontal", id: "login-form" }

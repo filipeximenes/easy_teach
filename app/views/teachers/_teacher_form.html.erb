@@ -1,0 +1,31 @@
+<%= form_for @teacher do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "full-width" %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, class: "full-width" %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email, class: "full-width" %>
+
+  <%= f.fields_for :index do |builder| %>
+    <%= builder.label :slug %>
+    <div class="form-inline" style="text-align: right">
+      <%= root_url(:only_path => false) %><%= builder.text_field :slug %>
+    </div>
+  <% end %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: "full-width" %>
+
+  <%= f.label :password_confirmation%>
+  <%= f.password_field :password_confirmation, class: "full-width" %>
+
+  <% if @referral %>
+    <%= hidden_field_tag "invtf", @referral %>
+  <% end %>
+  <br>
+  <%= f.submit t(:sign_up), class: "btn btn-primary pull-right" %>
+<% end %>

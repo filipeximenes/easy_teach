@@ -21,6 +21,6 @@ class InvitedTeacher < ActiveRecord::Base
 
   private
     def send_invitation_email
-      TeacherMailer.invitation(from: teacher, to: self.email)
+      ApplicationMailer.invite_teacher(from: teacher, to: self.email).deliver
     end
 end

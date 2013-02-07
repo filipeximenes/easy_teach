@@ -16,9 +16,9 @@ class Index < ActiveRecord::Base
   has_many :classrooms
 
   validates :slug, presence: true, 
-                    length: { maximum: 50 },
+                    length: { maximum: 50, minimun: 3 },
                     uniqueness: { case_sensitive: false },
-                    format:     { with: /\A[a-zA-Z][a-zA-Z0-9_-]{3,}\Z/ }
+                    format:     { with: /\A[a-zA-Z][a-zA-Z0-9_-]+\Z/ }
 
   before_save { self.slug = self.slug.downcase }
 end
