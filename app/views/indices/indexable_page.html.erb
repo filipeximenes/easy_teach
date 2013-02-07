@@ -2,7 +2,7 @@
   <div class="container">
     <% if page_owned_by_current_indexable? %>
       <span class="pull-right">
-        divulgue o seu link: <%= link_to show_indexable_path(@page_index.slug, :only_path => false) %>
+        divulgue o seu link: <%= link_to indexable_page_path(@page_index.slug, :only_path => false) %>
       </span>
     <% end %>
     <div class="row-fluid">
