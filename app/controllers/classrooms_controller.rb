@@ -1,26 +1,17 @@
 class ClassroomsController < ApplicationController
   include ClassroomsHelper
 
-  before_filter :existing_index, only: [:classroom_page]
-  before_filter :existing_classroom, only: [:classroom_page]
-  before_filter :authenticate_teacher!, only: [:new, :create, :edit, :update, :destroy]
-  before_filter :allow_classroom_edition?, only: [:edit, :update, :destroy]
+  before_filter :authenticate_teacher!
+  before_filter :allow_classroom_edition?
 
-  def show
-    @classroom = Classroom.find(params[:id]) || not_found
-    redirect_to classroom_page_path @classroom.index.slug, @classroom.slug 
-  end
-
-  def classroom_page
-    @enrolled_email = EnrolledEmail.new
+  def students
   end
 
   def new
-    @classroom = Classroom.new
   end
 
   def edit
-    @classroom = editable_classroom
+    @classroom = page_classroom
   end
 
   def create
@@ -36,18 +27,18 @@ class ClassroomsController < ApplicationController
   end
 
   def update
-    @classroom = editable_classroom
+    @classroom = page_classroom
     if @classroom.update_attributes(params[:classroom])
       # flash[:success] = "Profile updated"
       invite_students
-      redirect_to @classroom
+      redirect_to classroom_show_path(@classroom)
     else
       render 'edit'
     end
   end
 
   def destroy
-    editable_classroom.destroy
+    page_classroom.destroy
   end
 
   private

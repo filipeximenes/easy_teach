@@ -12,10 +12,11 @@
 
 class Classroom < ActiveRecord::Base
   attr_accessible :name, :slug
-  belongs_to :index
 
-  has_one :teacher, :through => :index, :source => :indexable, :source_type => Teacher
+  belongs_to :index
+  has_one :teacher, through: :index, source: :indexable, source_type: Teacher
   has_many :enrolled_emails
+  has_many :received_messages, as: :receiver, class_name: "Message"
 
   validates_uniqueness_of :slug, scope: [:index_id],
                                   case_sensitive: false

@@ -1,4 +1,4 @@
-<%= form_for @enrolled_email do |f| %>
+<%= form_for @enrolled_email || EnrolledEmail.new do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
   <%= hidden_field_tag "indexable_slug", @page_index.slug %>
@@ -10,5 +10,5 @@
   <%= f.label :email %>
   <%= f.text_field :email, class: "full-width" %>
 
-  <%= f.submit t(:sign_up), class: "btn btn-primary" %>
+  <%= f.submit t(:send), class: "btn btn-primary" %>
 <% end %>

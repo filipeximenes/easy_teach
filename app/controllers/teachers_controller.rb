@@ -11,7 +11,7 @@ class TeachersController < ApplicationController
       sign_in @teacher
       # flash[:success] = "Welcome to the Sample App!"
       process_referral
-      redirect_to new_classroom_path
+      redirect_to new_classroom_manage_path
     else
       render 'static_pages/home'
     end

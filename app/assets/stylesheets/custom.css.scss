@@ -29,3 +29,11 @@ html, body {
   overflow:auto;
   padding-bottom:150px; /* this needs to be bigger than footer height*/
 }
+
+textarea { 
+  width: 100%; border: 1px solid #333; padding: 4px; 
+}
+
+.text-are-full-width { 
+  padding-right: 10px; 
+}

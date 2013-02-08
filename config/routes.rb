@@ -4,15 +4,28 @@ EasyTeach::Application.routes.draw do
   root :to => "static_pages#root"
 
   resources :teachers, only: [:new, :create, :edit, :update]
-  resources :classrooms, only: [:show, :new, :create, :update, :edit, :destroy]
   resources :indices, only: [:show]
   resources :invited_teachers, only: [:new, :create]
   resources :enrolled_emails, only: [:edit, :create, :update, :destroy]
+  resources :messages, only: [] do
+    collection do
+      post 'enrolled_email_classroom'
+    end
+  end
+  resources :classroom_show, only: [:show]
+  resources :classrooms, only: [:new, :edit, :create,  :update, :destroy] do
+    collection do
+      
+    end
+    member do
+      get :students
+    end
+  end
 
   match '/home', to: "static_pages#home", as: 'home'
 
   match '/:indexable_slug', to: "indices#indexable_page", as: 'indexable_page', via: :get
-  match '/:indexable_slug/:classroom_slug', to: "classrooms#classroom_page", as: 'classroom_page', via: :get
+  match '/:indexable_slug/:classroom_slug', to: "classroom_show#classroom_page", as: 'classroom_page', via: :get
   match '/:indexable_slug/:classroom_slug/enroll', to: "enrolled_emails#new", as: 'new_enrolled_email', via: :get
   # match '/:indexable_slug/:classroom_slug/enroll', to: "enrolled_emails#new", as: 'enrolled_email', via: :post
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205163823) do
+ActiveRecord::Schema.define(:version => 20130207235431) do
 
   create_table "classrooms", :force => true do |t|
     t.integer  "index_id"
@@ -50,6 +50,20 @@ ActiveRecord::Schema.define(:version => 20130205163823) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.string   "sender_type"
+    t.integer  "receiver_id"
+    t.string   "receiver_type"
+    t.text     "message"
+    t.boolean  "answered"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "messages", ["receiver_id"], :name => "index_messages_on_receiver_id"
+  add_index "messages", ["sender_id"], :name => "index_messages_on_sender_id"
 
   create_table "teachers", :force => true do |t|
     t.string   "name"

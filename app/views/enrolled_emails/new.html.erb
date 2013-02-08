@@ -1,10 +1,5 @@
-<section class="section alt" id="">
-  <div class="container">
-    <div class="modal modal-login">
-      <div class="well">
-        <h2><%= @page_classroom.name %></h2>
-        <%= render "enrolled_emails/enrolled_email_form" %>
-      </div>
-    </div>
-  </div>
-</section>
+<% content_for :form_content do %>
+  <h2><%= @page_classroom.name %></h2>
+  <%= render "enrolled_emails/enrolled_email_form" %>
+<% end %>
+<%= render "shared/base_form" %>

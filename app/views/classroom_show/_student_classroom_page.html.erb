@@ -15,6 +15,6 @@
         Pergunte ao professor
       </h2>
     </header>
-    <!-- form de pergunta (email e texto) -->
+    <%= render partial: "messages/enrolled_email_classroom_form", locals: { classroom: @page_classroom } %>
   </article>
 </div>

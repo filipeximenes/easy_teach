@@ -30,14 +30,18 @@
 # :lockable, :timeoutable and :omniauthable
 
 class Teacher < ActiveRecord::Base
-  @@REFERRALS_TO_FREE_CLASSROOM = 5
+  @@REFERRALS_TO_FREE_CLASSROOM = 4
 
   devise :database_authenticatable, :recoverable, :confirmable,
         :rememberable, :trackable, :validatable
   attr_accessible :email, :password, :password_confirmation, 
                   :remember_me, :last_name, :name, :index_attributes
-  has_one :index, :as => :indexable, :dependent => :destroy
+
+  has_one :index, as: :indexable, :dependent => :destroy
   has_many :invited_teachers
+  has_many :sent_messages, as: :sender, class_name: "Message"
+  has_many :received_messages, as: :receiver, class_name: "Message"
+
   accepts_nested_attributes_for :index
 
   validates :name, presence: true

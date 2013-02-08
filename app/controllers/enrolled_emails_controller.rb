@@ -1,5 +1,5 @@
 class EnrolledEmailsController < ApplicationController
-  include ClassroomsHelper
+  include ClassroomShowHelper
   include EnrolledEmailsHelper
 
   before_filter :existing_index, only: [:new, :creates, :update]
@@ -17,7 +17,7 @@ class EnrolledEmailsController < ApplicationController
     @enrolled_email = page_classroom.enrolled_emails.build(params[:enrolled_email])
     if @enrolled_email.save
       # flash[:success] = "Welcome to the Sample App!"
-      redirect_to page_classroom
+      redirect_to classroom_show_path(page_classroom)
     else
       render 'new'
     end
@@ -27,14 +27,15 @@ class EnrolledEmailsController < ApplicationController
     @enrolled_email = page_classroom.enrolled_emails.find(params[:id])
     if @enrolled_email.update_attributes(params[:enrolled_email])
       # flash[:success] = "Welcome to the Sample App!"
-      redirect_to page_classroom
+      redirect_to classroom_show_path(page_classroom)
     else
       render 'edit'
     end
   end
 
   def destroy
+    classroom = editable_enrolled_email.classroom
     editable_enrolled_email.destroy
-    redirect_to classroom_from_editable_enrolled_email
+    redirect_to classroom_show_path(classroom)
   end
 end

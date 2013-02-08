@@ -11,3 +11,6 @@ pt-BR:
     send: Enviar
 
     student_email_list: "Convidar alunos"
+
+    enroled_email_not_found: "Este email não está cadastrado nesta turma, use outro ou cadastre-se"
+    successfully_sent_message: "Sua mensagem foi enviada com sucesso"

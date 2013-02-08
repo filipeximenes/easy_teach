@@ -1,1 +1,4 @@
-<%= render "classrooms/classroom_form" %>
+<% content_for :form_content do %>
+  <%= render "classrooms/classroom_form" %>
+<% end %>
+<%= render "shared/base_form" %>

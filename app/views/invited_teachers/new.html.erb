@@ -1,7 +1,10 @@
-convide:
-<%= form_tag(:controller => "invited_teachers", 
-                :action => "create", 
-                :method => "post") do %>
-  <%= text_field_tag 'emails'%>
-  <%= submit_tag 'Save' %>
+<% content_for :form_content do %>
+  <%= form_tag invited_teachers_path do %>
+    <div class="text-are-full-width">
+      <%= label_tag "Convide outros professores:" %>
+      <%= text_area_tag 'emails', nil, rows: 5, placeholder:"exemplo@email.com, outro@gmail.com, mais_um@servidor.la" %>
+    </div>
+    <%= submit_tag 'Save', class: "btn btn-primary" %>
+  <% end %>
 <% end %>
+<%= render "shared/base_form" %>
