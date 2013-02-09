@@ -2,7 +2,7 @@ class ClassroomsController < ApplicationController
   include ClassroomsHelper
 
   before_filter :authenticate_teacher!
-  before_filter :allow_classroom_edition?
+  before_filter :allow_classroom_edition?, only: [:edit, :update, :destroy, :students]
 
   def students
   end

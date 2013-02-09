@@ -1,6 +1,11 @@
 module ClassroomsHelper
+
+
+
   def allow_classroom_edition?
-    page_classroom.index == current_index
+    if !(page_classroom.index == current_index)
+      redirect_to root_path
+    end
   end
 
   def page_classroom

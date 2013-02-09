@@ -21,11 +21,12 @@ class Classroom < ActiveRecord::Base
   validates_uniqueness_of :slug, scope: [:index_id],
                                   case_sensitive: false
 
-  before_save { self.slug = self.slug.downcase }
   validates :slug, presence: true, 
                     length: { maximum: 50 },
                     format:     { with: /\A[a-zA-Z][a-zA-Z0-9_-]{3,}\Z/ }
   validates :name, presence: true
+
+  before_save { self.slug = self.slug.downcase }
 
   def owner
     if self.teacher

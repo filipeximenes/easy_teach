@@ -3,7 +3,7 @@ EasyTeach::Application.routes.draw do
   
   root :to => "static_pages#root"
 
-  resources :teachers, only: [:new, :create, :edit, :update]
+  resource :teacher, only: [:create, :edit, :update]
   resources :indices, only: [:show]
   resources :invited_teachers, only: [:new, :create]
   resources :enrolled_emails, only: [:edit, :create, :update, :destroy]
