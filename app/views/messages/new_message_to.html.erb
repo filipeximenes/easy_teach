@@ -1,0 +1,5 @@
+<% content_for :form_content do %>
+  <%= render partial: "messages/message_box", locals: { receiver: @receiver, message: @message } %>
+<% end %>
+
+<%= render "shared/base_form" %>

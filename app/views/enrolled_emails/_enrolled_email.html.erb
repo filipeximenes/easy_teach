@@ -4,7 +4,8 @@
         <h4><%= enrolled_email.name %></h4>
       </div>
       <div class="span4">
-        <%= enrolled_email.email %>
+        <%= enrolled_email.email %><br>
+        <%= link_to t(:send_message), message_to_messageable_path(enrolled_email) %>
       </div>
       <div class="span3 pull-right">
         <% if enrolled_email.confirmed %>

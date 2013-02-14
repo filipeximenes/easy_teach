@@ -4,7 +4,7 @@
         <h4><%= message.sender.name %>  <small><%= message.sender.email %></small></h4>
       </div>
       <div class="span5 ">
-        <p><%= link_to message.message[0..50] + "...", enrolled_email_message_classroom_path(classroom.id, message.id) %></p>
+        <p><%= link_to message.message[0..50] + "...", response_to_message_path(message) %></p>
       </div>
       <% if false %>
       <div class="span3 ">

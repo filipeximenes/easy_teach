@@ -1,8 +1,7 @@
 <%= form_for @enrolled_email || EnrolledEmail.new do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= hidden_field_tag "indexable_slug", @index.slug %>
-  <%= hidden_field_tag "classroom_slug", @classroom.slug %>
+  <%= hidden_field_tag "classroom_id", @classroom.id %>
 
   <%= f.label :name %>
   <%= f.text_field :name, class: "full-width" %>

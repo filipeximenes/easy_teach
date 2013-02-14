@@ -19,7 +19,7 @@ describe "Teacher" do
 
     describe "visiting root path" do
       before { get root_path }
-      specify { response.should redirect_to(index_path(teacher.index))}
+      specify { response.should redirect_to(indices_show_path(teacher.index))}
     end
 
     describe "visiting teacher invitation page" do

@@ -17,4 +17,6 @@ class Message < ActiveRecord::Base
   attr_accessible :answered, :message, :sender, :receiver
   belongs_to :sender, :polymorphic => true
   belongs_to :receiver, :polymorphic => true
+
+  validates :message, presence: true
 end

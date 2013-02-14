@@ -1,26 +1,15 @@
 class EnrolledEmailsController < ApplicationController
-  include UrlUtil::FriendlyUrlUtil
   include UrlUtil::EnrolledEmailUrlUtil
 
-  before_filter :load_context_from_classroom_slug, only: [:new, :create, :update]
-  before_filter :load_context_from_enrolled_email_id, only: [:edit, :destroy, :accept]
-
-  before_filter :authenticate_teacher!, only: [:edit, :destroy, :accept]
-
-  def accept
-    @enrolled_email.toggle(:confirmed)
-    @enrolled_email.save
-    redirect_to students_classroom_path(@classroom)
-  end
+  before_filter :authenticate_teacher!, except: [:new, :create]
+  before_filter :load_and_authorize_from_enrolled_email_id!, except: [:new, :create]
 
   def new
     @enrolled_email = EnrolledEmail.new
   end
 
-  def edit
-  end
-
   def create
+    @classroom = Classroom.find(params[:classroom_id]) || not_found
     @enrolled_email = @classroom.enrolled_emails.build(params[:enrolled_email])
     if @enrolled_email.save
       # flash[:success] = "Welcome to the Sample App!"
@@ -28,6 +17,15 @@ class EnrolledEmailsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def accept
+    @enrolled_email.toggle(:confirmed)
+    @enrolled_email.save
+    redirect_to students_classroom_path(@classroom)
+  end
+
+  def edit
   end
 
   def update

@@ -15,6 +15,18 @@
         Pergunte ao professor
       </h2>
     </header>
-    <%= render partial: "messages/enrolled_email_classroom_form", locals: { classroom: @classroom } %>
+    <%= form_tag send_from_enrolled_email_messages_path(@classroom) do %>
+      <%= hidden_field_tag "classroom_id", @classroom.id %>
+
+      <%= label_tag "Seu email" %>
+      <%= text_field_tag :email, nil, class: "full-width" %>
+
+      <div class="text-are-full-width">
+        <%= label_tag "Mensagem" %>
+        <%= text_area_tag :message, nil, rows: 7 %>
+      </div>
+
+      <%= submit_tag t(:send), class: "btn btn-primary" %>
+    <% end %>
   </article>
 </div>

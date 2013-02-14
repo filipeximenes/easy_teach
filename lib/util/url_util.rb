@@ -27,6 +27,14 @@ module UrlUtil
   end
 
   module EnrolledEmailUrlUtil
+    def load_and_authorize_from_enrolled_email_id!
+      if index != current_index
+        redirect_to root_path
+      else
+        load_context_from_enrolled_email_id
+      end
+    end
+
     def load_context_from_enrolled_email_id
       indexable
     end
@@ -49,6 +57,14 @@ module UrlUtil
   end
 
   module ClassroomUrlUtil
+    def load_and_authorize_from_classroom_id!
+      if index != current_index
+        redirect_to root_path
+      else
+        load_context_from_classroom_id
+      end
+    end
+
     def load_context_from_classroom_id
       indexable
     end

@@ -1,0 +1,21 @@
+<%= form_tag response_to_message_path(showing_message) do %>
+  <%= render 'shared/error_messages', object: response %>
+
+  <%= hidden_field_tag "showing_message_id", showing_message.id %>
+  <h4><%= showing_message.sender.name %></h4>
+  <%= showing_message.message %>
+  <hr>
+  <div class="text-are-full-width">
+    <%= label_tag t(:response) %>
+    <%= text_area_tag :message, response.message, rows: 5 %>
+  </div>
+  <%= link_to "voltar", :back %>
+  <div class="pull-right">
+    <% if defined? messageable and messageable %>
+      <%= hidden_field_tag "messageable_group_id", @messageable.id %>
+      <%= hidden_field_tag "messageable_group_type", @messageable.class.to_s %>
+      <%= submit_tag t(:respond_to_classroom), name: :response_to_messageable_group, class: "btn btn-primary" %>
+    <% end %>
+    <%= submit_tag t(:respond), class: "btn btn-primary" %>
+  </div>
+<% end %>

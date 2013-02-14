@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
   def indexable_signed_in?
     teacher_signed_in?
   end
+
+  def current_logged
+    current_teacher
+  end
 end

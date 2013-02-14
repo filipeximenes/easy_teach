@@ -8,4 +8,8 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def message_to_messageable_path(messageable)
+    send_to_messages_path(messageable.class.to_s.underscore, messageable.id)
+  end
 end

@@ -1,0 +1,2 @@
+module IndicesShowHelper
+end

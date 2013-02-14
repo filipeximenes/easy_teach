@@ -11,14 +11,20 @@ pt-BR:
     send: "Enviar"
     current_password: "Senha Atual"
     response: "Resposta"
+    respond: "responder"
+    send_message: "enviar mensagem"
+    message: "mensagem"
 
-    confirm_answer_all: "Está mensagem será mandada para todos da turma, deseja continuar?"
+    confirm_respond_all: "Está mensagem será mandada para todos da turma, deseja continuar?"
+    respond_to_classroom: "responder para toda turma"
 
     student_email_list: "Convidar alunos"
 
     enroled_email_not_found: "Este email não está cadastrado nesta turma, use outro ou inscreva-se"
     successfully_sent_message: "Sua mensagem foi enviada com sucesso"
     error_sending_message: "Houve um problema no envio da mensagem"
+
+    invite_teacher_success: "Os convites foram enviados!"
 
     errors:
         messages:

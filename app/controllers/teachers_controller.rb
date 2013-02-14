@@ -1,9 +1,6 @@
 class TeachersController < ApplicationController
-  before_filter :authenticate_teacher!, only: [:edit, :update]
-
-  def edit
-    @teacher = current_teacher
-  end
+  
+  before_filter :authenticate_teacher!, except: [:create]
 
   def create
     @teacher = Teacher.new(params[:teacher])
@@ -15,6 +12,10 @@ class TeachersController < ApplicationController
     else
       render 'static_pages/home'
     end
+  end
+
+  def edit
+    @teacher = current_teacher
   end
 
   def update
@@ -31,11 +32,9 @@ class TeachersController < ApplicationController
   private
     def process_referral
       if !params[:invtf].nil?
-        logger.info("ali")
         referral_from = Teacher.find(params[:invtf])
         logger.info(params[:invtf])
         if referral_from
-          logger.info("aqui")
           referral_from.referral_sinup
         end
       end

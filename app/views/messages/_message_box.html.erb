@@ -1,0 +1,15 @@
+<%= form_tag message_to_messageable_path(receiver) do %>
+  <%= render 'shared/error_messages', object: message %>
+  
+  <h4>para: <%= receiver.name %></h4>
+
+  <div class="text-are-full-width">
+    <%= label_tag t(:message) %>
+    <%= text_area_tag :message, message.message, rows: 5 %>
+  </div>
+
+  <%= link_to "voltar", :back %>
+  <div class="pull-right">
+    <%= submit_tag t(:send), class: "btn btn-primary" %>
+  </div>
+<% end %>
