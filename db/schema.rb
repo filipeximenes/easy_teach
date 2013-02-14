@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(:version => 20130207235431) do
     t.integer  "receiver_id"
     t.string   "receiver_type"
     t.text     "message"
-    t.boolean  "answered"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.boolean  "answered",      :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "messages", ["receiver_id"], :name => "index_messages_on_receiver_id"

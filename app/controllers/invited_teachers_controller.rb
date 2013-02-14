@@ -16,7 +16,7 @@ class InvitedTeachersController < ApplicationController
     if !teacher_session[:created_classroom].nil?
       classroom_id = teacher_session[:created_classroom]
       teacher_session.delete :created_classroom
-      redirect_to Classroom.find(classroom_id)
+      redirect_to classroom_show_path(Classroom.find(classroom_id))
     else
       redirect_to current_index
     end

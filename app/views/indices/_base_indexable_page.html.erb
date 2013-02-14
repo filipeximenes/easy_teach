@@ -1,16 +1,16 @@
 <section class="section">
   <div class="container">
-    <% if page_owned_by_current_indexable? %>
+    <% if defined? manager and manager %>
       <span class="pull-right">
-        divulgue o seu link: <%= link_to indexable_page_path(@page_index.slug, :only_path => false) %>
+        divulgue o seu link: <%= link_to "#{indexable_page_path(@index.slug, :only_path => false)}", indexable_page_path(@index.slug, :only_path => false) %>
       </span>
     <% end %>
     <div class="row-fluid">
       <aside class="span3 sidebar">
         <div class="sidebar-widget">
-          <h2 class="sidebar-header"><%= @page_indexable.full_name %></h2>
+          <h2 class="sidebar-header"><%= @indexable.full_name %></h2>
           <ul class="unstyled">
-            <% if page_owned_by_current_indexable? %> 
+            <% if defined? manager and manager %> 
               <li>
                 <h4>
                   <%= link_to "minhas informações", edit_teacher_path %>
@@ -28,7 +28,7 @@
             </h2>
           </header>
           <ul class="unstyled">
-            <%= render @page_index.classrooms %>
+            <%= render partial: "classrooms/classroom", collection: @index.classrooms, locals: { manager: manager } %>
           </ul>
         </article>
       </div>

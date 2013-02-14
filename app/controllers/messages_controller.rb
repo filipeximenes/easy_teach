@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     if !@page_classroom.nil?
       @enrolled_email = @page_classroom.enrolled_emails.find_by_email(params[:email].downcase)
       if !@enrolled_email.nil?
-        message = Message.create(sender: @enrolled_email, receiver: @page_classroom, message: params[:message])
+        message = Message.create(sender: @enrolled_email, message: params[:message])
         flash[:success] = t(:successfully_sent_message)
         redirect_to classroom_show_path(@page_classroom) and return
       else
@@ -15,5 +15,9 @@ class MessagesController < ApplicationController
     @page_index = @page_classroom.index
     @page_indexable = @page_index.indexable
     render "classroom_show/classroom_page"
+  end
+
+  def teacher_enroled_email
+
   end
 end

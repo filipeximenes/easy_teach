@@ -1,11 +1,25 @@
 class IndicesController < ApplicationController
-  before_filter :existing_index,   only: [:indexable_page]
+
+  include UrlUtil::FriendlyUrlUtil
+
+  before_filter :authenticate_teacher!, only: [:dashboard]
+  before_filter :load_context_from_indexable_slug, only: [:indexable_page]
+
+  def indexable_page
+  end
+
+  def dashboard
+    @index = current_index
+    @indexable = current_indexable
+  end
 
   def show
     @index = Index.find(params[:id]) || not_found
-    redirect_to indexable_page_path @index.slug
-  end
-
-  def indexable_page
+    flash.keep
+    if @index == current_index
+      redirect_to dashboard_indices_path
+    else
+      redirect_to indexable_page_path(@index.slug)
+    end
   end
 end

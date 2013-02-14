@@ -6,7 +6,7 @@ class CreateMessages < ActiveRecord::Migration
       t.integer :receiver_id
       t.string :receiver_type
       t.text :message
-      t.boolean :answered
+      t.boolean :answered, default: false
 
       t.timestamps
     end

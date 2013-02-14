@@ -2,26 +2,26 @@
   <div class="container">
     <% if defined? manager and manager %>
       <span class="pull-right">
-        divulgue o link da turma: <%= link_to "#{classroom_page_path(current_index.slug, @page_classroom.slug, :only_path => false)}", classroom_page_path(current_index.slug, @page_classroom.slug, :only_path => false) %>
+        divulgue o link da turma: <%= link_to "#{classroom_page_path(current_index.slug, @classroom.slug, :only_path => false)}", classroom_page_path(current_index.slug, @classroom.slug, :only_path => false) %>
       </span>
     <% end %>
     <div class="row-fluid">
       <aside class="span3 sidebar">
         <div class="sidebar-widget">
           <h2 class="sidebar-header">
-            <%= @page_classroom.name %>
+            <%= @classroom.name %>
           </h2>
           <ul class="unstyled">
             <li>
               <h3>
-                Professor: <%= @page_classroom.index.indexable.full_name %>
+                Professor: <%= @classroom.index.indexable.full_name %>
               </h3>
               <h4>
-                Alunos nesta turma: <%= @page_classroom.enrolled_emails.count %>
+                Alunos nesta turma: <%= @classroom.enrolled_emails.count %>
               </h4>
               <% if defined? manager and manager %>
                 <h4>
-                  <%= link_to "Editar Turma", edit_classroom_path(@page_classroom)  %>
+                  <%= link_to "Editar Turma", edit_classroom_path(@classroom)  %>
                 </h4>
               <% end %>
             </li>

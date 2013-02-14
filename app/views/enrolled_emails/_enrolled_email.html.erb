@@ -1,7 +1,7 @@
 <li>
   <div class="row-fluid ">
       <div class="span4">
-        <%= enrolled_email.name %>
+        <h4><%= enrolled_email.name %></h4>
       </div>
       <div class="span4">
         <%= enrolled_email.email %>
@@ -10,7 +10,7 @@
         <% if enrolled_email.confirmed %>
           <%= link_to "editar", edit_enrolled_email_path(enrolled_email) %>        
         <% else %>
-          <%= link_to "aceitar", edit_enrolled_email_path(enrolled_email), style: "color: green" %>
+          <%= link_to "aceitar", accept_enrolled_email_path(enrolled_email), :method => :put, style: "color: green" %>
         <% end %>
         | <%= link_to "remover", enrolled_email, style: "color: red", method: :delete %>
     </div>

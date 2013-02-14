@@ -1,9 +1,7 @@
 class ClassroomShowController < ApplicationController
-  include ClassroomShowHelper
+  include UrlUtil::FriendlyUrlUtil
 
-  before_filter :existing_index, only: [:classroom_page]
-  before_filter :existing_classroom, only: [:classroom_page]
-
+  before_filter :load_context_from_classroom_slug, only: [:classroom_page]
 
   def classroom_page
   end

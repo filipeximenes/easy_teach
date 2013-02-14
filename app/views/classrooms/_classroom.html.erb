@@ -3,7 +3,7 @@
       <div class="span4 ">
         <h3><%= link_to classroom.name, classroom_show_path(classroom) %></h3>
       </div>
-      <% if page_owned_by_current_indexable? %>
+      <% if defined? manager and manager %>
         <div class="span3 pull-right">
           <%= link_to "editar", edit_classroom_path(classroom) %> | 
           <%= link_to "adicionar alunos ", edit_classroom_path(classroom) %>

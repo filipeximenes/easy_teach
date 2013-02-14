@@ -15,7 +15,8 @@ class EnrolledEmail < ActiveRecord::Base
   attr_accessible :email, :name, :confirmed
   belongs_to :classroom
 
-  validates :email, presence:   true,
-                    format:     { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
-                    uniqueness: { case_sensitive: false }
+  validates_uniqueness_of :email, scope: [:classroom_id],
+                            presence:   true,
+                            format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
+                            case_sensitive: false
 end

@@ -1,0 +1,16 @@
+<li>
+  <div class="row-fluid ">
+      <div class="span4">
+        <h4><%= message.sender.name %>  <small><%= message.sender.email %></small></h4>
+      </div>
+      <div class="span5 ">
+        <p><%= link_to message.message[0..50] + "...", enrolled_email_message_classroom_path(classroom.id, message.id) %></p>
+      </div>
+      <% if false %>
+      <div class="span3 ">
+        <%= link_to "marcar como lida", nil, style: "color: green" %>
+      </div>
+      <% end %>
+  </div>
+  <hr>
+</li>

@@ -12,7 +12,7 @@
 
   <%= f.fields_for :index do |builder| %>
     <%= builder.label :slug %>
-    <div class="form-inline" style="text-align: right">
+    <div class="form-inline">
       <%= root_url(:only_path => false) %><%= builder.text_field :slug %>
     </div>
   <% end %>

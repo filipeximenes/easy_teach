@@ -8,7 +8,7 @@
 #  receiver_id   :integer
 #  receiver_type :string(255)
 #  message       :text
-#  answered      :boolean
+#  answered      :boolean          default(FALSE)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #

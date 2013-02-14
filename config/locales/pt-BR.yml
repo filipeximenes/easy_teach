@@ -8,9 +8,28 @@ pt-BR:
 
     sign_up: "Fazer Cadastro"
     fill_signup_form: "Cadastre-se"
-    send: Enviar
+    send: "Enviar"
+    current_password: "Senha Atual"
+    response: "Resposta"
+
+    confirm_answer_all: "Está mensagem será mandada para todos da turma, deseja continuar?"
 
     student_email_list: "Convidar alunos"
 
-    enroled_email_not_found: "Este email não está cadastrado nesta turma, use outro ou cadastre-se"
+    enroled_email_not_found: "Este email não está cadastrado nesta turma, use outro ou inscreva-se"
     successfully_sent_message: "Sua mensagem foi enviada com sucesso"
+    error_sending_message: "Houve um problema no envio da mensagem"
+
+    errors:
+        messages:
+            blank: "não pode estar em branco."
+            invalid: "inválido"
+            confirmation: "de confirmação inválida."
+        attributes:
+            password: 
+                too_short: "deve conter pelo menos 6 caracteres"  
+            email:
+                taken: "já está cadastrado no sistema, faça login, ou utilize outro."
+            slug:
+                taken: "já pertence a outro usuário, tente outro."
+                invalid: "só pode conter letras, números, - e _"

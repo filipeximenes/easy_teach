@@ -1,6 +1,6 @@
 <% content_for :show_content do %>
   <ul class="unstyled">
-    <%= render @page_classroom.enrolled_emails.order("confirmed", "LOWER(name)") %>
+    <%= render @classroom.enrolled_emails.order("confirmed", "LOWER(name)") %>
   </ul>
 <% end %>
 

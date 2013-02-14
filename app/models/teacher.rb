@@ -26,7 +26,7 @@
 #
 
 # Include default devise modules. Others available are:
-# :token_authenticatable,
+# :token_authenticatable, :registerable
 # :lockable, :timeoutable and :omniauthable
 
 class Teacher < ActiveRecord::Base
@@ -34,8 +34,9 @@ class Teacher < ActiveRecord::Base
 
   devise :database_authenticatable, :recoverable, :confirmable,
         :rememberable, :trackable, :validatable
-  attr_accessible :email, :password, :password_confirmation, 
-                  :remember_me, :last_name, :name, :index_attributes
+  attr_accessible :email, :last_name, :name, 
+                  :password, :password_confirmation,
+                  :remember_me, :index_attributes
 
   has_one :index, as: :indexable, :dependent => :destroy
   has_many :invited_teachers

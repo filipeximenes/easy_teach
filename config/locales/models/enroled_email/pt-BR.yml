@@ -1,0 +1,8 @@
+pt-BR:
+    activerecord:
+        models:
+            enrolled_email: "Emails da Turma"
+        attributes:
+            enrolled_email:
+                name: "Nome"
+                emial: "Email"

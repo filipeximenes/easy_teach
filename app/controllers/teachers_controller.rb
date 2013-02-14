@@ -11,7 +11,7 @@ class TeachersController < ApplicationController
       sign_in @teacher
       # flash[:success] = "Welcome to the Sample App!"
       process_referral
-      redirect_to new_classroom_manage_path
+      redirect_to new_classroom_path
     else
       render 'static_pages/home'
     end
@@ -19,7 +19,7 @@ class TeachersController < ApplicationController
 
   def update
     @teacher = current_teacher
-    if @teacher.update_attributes(params[:teacher])
+    if @teacher.update_with_password(params[:teacher])
       sign_in(@teacher, :bypass => true)
       # flash[:success] = "Profile updated"
       redirect_to @teacher.index

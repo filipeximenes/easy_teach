@@ -1,5 +1,37 @@
 <% content_for :form_content do %>
-  <%= render "teachers/teacher_form" %>
+  <%= form_for @teacher, url: teacher_path do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "full-width" %>
+
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: "full-width" %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "full-width" %>
+
+    <%= f.fields_for :index do |builder| %>
+      <%= builder.label :slug %>
+      <div class="form-inline">
+        <%= root_url(:only_path => false) %><%= builder.text_field :slug %>
+      </div>
+    <% end %>
+
+    <div class="form-inline"><%= f.label :password %><i> (caso queira alterar sua senha)</i><br></div>
+    <%= f.password_field :password %>
+
+    <div class="form-inline"><%= f.label :password_confirmation%><i> (caso queira alterar sua senha)</i><br></div>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.label t(:current_password) %>
+    <%= f.password_field :current_password %>
+
+    <br>
+    <%= f.submit t(:send), class: "btn btn-primary" %>
+  <% end %>
+  <br>
+  <%= link_to "Voltar", :back %>
 <% end %>
 <%= render "shared/base_form" %>
 

@@ -5,14 +5,14 @@
         <% if current_showing == :student_list %>
           Alunos
         <% else %>
-          <a href="">Alunos</a>
+        <%= link_to "Alunos", students_classroom_path(@classroom) %>
         <% end %>
       </h2>
       <h2 class="span2">
-        <% if current_showing == :message_list %>
+        <% if current_showing == :messages %>
           Mensagens
         <% else %>
-          <a href="">Mensagens</a>
+          <%= link_to "Mensagens", messages_classroom_path(@classroom) %>
         <% end %>
       </h2>
     </header>
