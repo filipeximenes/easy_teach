@@ -31,7 +31,7 @@ EasyTeach::Application.routes.draw do
     end
     member do
       get '/response', to: "messages#new_response_to", as: "response_to"
-      post '/response', to: "messages#create_response", as: "response_to"
+      post '/response', to: "messages#create_response_to", as: "response_to"
     end
   end
 
