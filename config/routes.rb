@@ -23,7 +23,7 @@ EasyTeach::Application.routes.draw do
       put :accept
     end
   end
-  resources :messages, only: [] do
+  resources :messages, only: [:show] do
     collection do
       get '/message_to/:messageable_type/:messageable_id', to: "messages#new_message_to", as: "send_to"
       post '/message_to/:messageable_type/:messageable_id', to: "messages#create_message_to", as: "send_to"

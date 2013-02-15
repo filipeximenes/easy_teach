@@ -1,14 +1,8 @@
 <li>
   <div class="row-fluid ">
-      <div class="span4 ">
-        <h3><%= link_to classroom.name, classroom_show_path(classroom) %></h3>
-      </div>
-      <% if defined? manager and manager %>
-        <div class="span3 pull-right">
-          <%= link_to "editar", edit_classroom_path(classroom) %> | 
-          <%= link_to "adicionar alunos ", edit_classroom_path(classroom) %>
-        </div>
-      <% end %>
+    <div class="span4 ">
+      <h3><%= link_to classroom.name, classroom_page_path(classroom.index.slug, classroom.slug) %></h3>
+    </div>
   </div>
   <hr>
 </li>

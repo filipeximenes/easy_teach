@@ -6,10 +6,10 @@
   <%= showing_message.message %>
   <hr>
   <div class="text-are-full-width">
-    <%= label_tag t(:response) %>
+    <%= label_tag t(:respond) %>
     <%= text_area_tag :message, response.message, rows: 5 %>
   </div>
-  <%= link_to "voltar", :back %>
+  <%= link_to t(:back), :back %>
   <div class="pull-right">
     <% if defined? messageable and messageable %>
       <%= hidden_field_tag "messageable_group_id", @messageable.id %>

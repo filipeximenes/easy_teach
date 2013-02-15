@@ -2,8 +2,11 @@ class MessagesController < ApplicationController
   include MessageAuthorization
 
   before_filter :authorize_message_to, only: [:new_message_to, :create_message_to]
-  before_filter :authorize_new_response_to, only: [:new_response_to]
+  before_filter :authorize_visualization, only: [:show, :new_response_to]
   before_filter :authorize_create_response_to, only: [:create_response_to]
+
+  def show
+  end
 
   def new_message_to
     @message = Message.new
@@ -13,7 +16,7 @@ class MessagesController < ApplicationController
     @message = Message.new(sender: current_logged, receiver: receiver, message: params[:message])
     if @message.save
       flash[:success] = t(:successfully_sent_message)
-      redirect_to '/'
+      redirect_to get_redirect_url
     else
       render 'new_message_to'
     end
@@ -30,7 +33,7 @@ class MessagesController < ApplicationController
     @response = Message.new(sender: current_logged, receiver: messageable, message: params[:message])
     if @response.save
       flash[:success] = t(:successfully_sent_message)
-      redirect_to '/'
+      redirect_to get_redirect_url
     else
       render 'new_response_to'
     end
@@ -41,7 +44,7 @@ class MessagesController < ApplicationController
     if !@classroom.nil?
       @enrolled_email = @classroom.enrolled_emails.find_by_email(params[:email].downcase)
       if !@enrolled_email.nil?
-        message = Message.create(sender: @enrolled_email, message: params[:message])
+        message = Message.create(sender: @enrolled_email, receiver: @classroom.owner, message: params[:message])
         flash[:success] = t(:successfully_sent_message)
         redirect_to classroom_show_path(@classroom) and return
       else

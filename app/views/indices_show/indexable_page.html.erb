@@ -1,1 +1,25 @@
-<%= render partial: "indices_show/base_indexable_page", locals: { manager: false } %>
+<section class="section">
+  <div class="container">
+    <div class="row-fluid">
+      <aside class="span3 sidebar">
+        <div class="sidebar-widget">
+          <h2 class="sidebar-header"><%= @indexable.full_name %></h2>
+          <ul class="unstyled">
+          </ul>
+        </div>
+      </aside>
+      <div class="span9">
+        <article class="blog-post">
+          <header class="blog-header">
+            <h2>
+              Turmas
+            </h2>
+          </header>
+          <ul class="unstyled">
+            <%= render partial: "classrooms/classroom", collection: @index.classrooms %>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

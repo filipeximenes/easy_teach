@@ -1,10 +1,16 @@
 <% content_for :show_content do %>
   <ul class="unstyled">
     <div class="row-fluid">
-      <%= link_to "Mensagem para todos", message_to_messageable_path(@classroom) %>
+      <% if false %>
+      <b>visualizar:</b>
+      <%= link_to "recebidas", messages_classroom_path(@classroom) %> |
+      <%= link_to "enviadas para a turma", messages_classroom_path(@classroom, show: "sent_messages") %>
+      <% end %>
+      <b>enviar:</b>
+      <%= link_to t(:message_to_classroom), message_to_messageable_path(@classroom) %>
     </div>
     <hr>
-    <%= render partial: "classrooms/message_item", collection: @classroom.received_messages, as: :message, locals: { classroom: @classroom } %>
+    <%= render partial: "classrooms/message_item", collection: messages_to_show, as: :message, locals: { classroom: @classroom } %>
   </ul>
 <% end %>
 

@@ -1,0 +1,9 @@
+<% content_for :form_content do %>
+  <h4>de: <%= get_message_sender_name(@showing_message) %></h4>
+  <h4>para: <%= get_message_receiver_name(@showing_message) %></h4>
+  <%= @showing_message.message %>
+  <hr>
+  <%= link_to t(:back), :back %>
+<% end %>
+
+<%= render "shared/base_form" %>

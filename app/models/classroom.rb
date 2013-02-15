@@ -28,7 +28,12 @@ class Classroom < ActiveRecord::Base
 
   def received_messages
     Message.joins("JOIN enrolled_emails on sender_id = enrolled_emails.id")
-            .where("sender_type = 'EnrolledEmail' AND enrolled_emails.classroom_id = ?", self.id).order("created_at DESC")
+            .where("sender_type = 'EnrolledEmail' AND enrolled_emails.classroom_id = ?", self.id)
+            .order("created_at DESC")
+  end
+
+  def sent_messages
+    self.messages
   end
 
   before_save { self.slug = self.slug.downcase }

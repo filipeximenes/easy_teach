@@ -1,9 +1,10 @@
 <li>
   <div class="row-fluid ">
-      <div class="span4">
-        <h4><%= message.sender.name %>  <small><%= message.sender.email %></small></h4>
+      <div class="span5">
+        de: <b><%= get_message_sender_name(message) %></b> <br>
+        para: <b><%= get_message_receiver_name(message) %></b>
       </div>
-      <div class="span5 ">
+      <div class="span7">
         <%= link_to message.message[0..50] + "...", link_to_message(message) %>
       </div>
       <% if false %>

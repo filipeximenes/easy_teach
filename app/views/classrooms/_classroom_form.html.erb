@@ -13,5 +13,6 @@
     <%= text_area_tag :student_email_list, nil, rows: 5, placeholder:"exemplo@email.com, outro@gmail.com, mais_um@servidor.la" %>
   </div>
 
-  <%= f.submit t(:send), class: "btn btn-primary" %>
+  <%= link_to t(:back), :back %>
+  <%= f.submit t(:send), class: "btn btn-primary pull-right" %>
 <% end %>

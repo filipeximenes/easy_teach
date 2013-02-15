@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_index, :current_indexable
+  helper_method :current_index, :current_indexable, :current_logged
 
   def not_found
     raise ActiveRecord::RecordNotFound.new('Not Found')

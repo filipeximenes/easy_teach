@@ -4,6 +4,7 @@
       <span class="pull-right">
         divulgue o link da turma: <%= link_to "#{classroom_page_path(current_index.slug, @classroom.slug, :only_path => false)}", classroom_page_path(current_index.slug, @classroom.slug, :only_path => false) %>
       </span>
+      <span><%= link_to t(:home), dashboard_indices_path(current_index) %> > <%= @classroom.name %></span>
     <% end %>
     <div class="row-fluid">
       <aside class="span3 sidebar">

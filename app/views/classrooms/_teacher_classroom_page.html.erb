@@ -8,6 +8,7 @@
         <%= link_to "Alunos", students_classroom_path(@classroom) %>
         <% end %>
       </h2>
+      <% if false %>
       <h2 class="span2">
         <% if current_showing == :messages %>
           Mensagens
@@ -15,6 +16,7 @@
           <%= link_to "Mensagens", messages_classroom_path(@classroom) %>
         <% end %>
       </h2>
+      <% end %>
     </header>
     <%= yield :show_content %>
   </article>

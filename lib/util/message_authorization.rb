@@ -1,16 +1,20 @@
 module MessageAuthorization
   def authorize_message_to
+    # verifies if current_user can see and send message to receiver
     authorize = false
 
     if current_logged.class == Teacher
       if receiver.class == EnrolledEmail
         @classroom = current_logged.index.classrooms.find(receiver.classroom) || not_found
         authorize = true
+      elsif receiver.class == Classroom
+        @clasroom = current_logged.index.classrooms.find(receiver) || not_found
+        authorize = true
       end
     end
 
     if !authorize
-      redirect_to '/'
+      not_found
     end
   end
 
@@ -18,18 +22,24 @@ module MessageAuthorization
     @receiver ||= params[:messageable_type].classify.constantize.find(params[:messageable_id]) || not_found
   end
 
-  def authorize_new_response_to
+  def authorize_visualization
+    # verifies if current user can see the message
     authorize = false
 
     if current_logged.class == Teacher
-      if showing_message.sender.class == EnrolledEmail
-        @classroom = current_logged.index.classrooms.find(showing_message.sender.classroom) || not_found
+      if showing_message.receiver == current_logged
+        authorize = true
+      elsif showing_message.receiver.class == Classroom
+        @classroom = current_logged.index.classrooms.find(showing_message.receiver) || not_found
+        authorize = true
+      elsif showing_message.receiver.class == EnrolledEmail
+        @classroom = current_logged.index.classrooms.find(showing_message.receiver.classroom) || not_found
         authorize = true
       end
     end
 
     if !authorize
-      redirect_to '/'
+      not_found
     end
   end
 
@@ -38,9 +48,10 @@ module MessageAuthorization
   end
 
   def authorize_create_response_to
+    # verifies if current_user can send message to messageable
     authorize = false
 
-    authorize_new_response_to
+    authorize_visualization
 
     if messageable.class == Classroom
       @classroom = current_logged.index.classrooms.find(messageable) || not_found
@@ -51,7 +62,7 @@ module MessageAuthorization
     end 
 
     if !authorize
-      redirect_to '/'
+      not_found
     end
   end
 
@@ -60,6 +71,18 @@ module MessageAuthorization
       @messageable ||= params[:messageable_group_type].classify.constantize.find(params[:messageable_group_id]) || not_found
     else
       @messageable ||= @showing_message.sender
+    end
+  end
+
+  def get_redirect_url
+    if current_logged.class == Teacher
+      if defined? @classroom and @classroom
+        messages_classroom_path(@classroom)
+      else
+        dashboard_indices_path
+      end
+    else
+      root_path
     end
   end
 end

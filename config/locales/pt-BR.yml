@@ -14,17 +14,25 @@ pt-BR:
     respond: "responder"
     send_message: "enviar mensagem"
     message: "mensagem"
+    message_to_classroom: "mensagem para turma"
 
     confirm_respond_all: "Está mensagem será mandada para todos da turma, deseja continuar?"
     respond_to_classroom: "responder para toda turma"
 
     student_email_list: "Convidar alunos"
+    add_students: "adicionar alunos"
 
     enroled_email_not_found: "Este email não está cadastrado nesta turma, use outro ou inscreva-se"
     successfully_sent_message: "Sua mensagem foi enviada com sucesso"
     error_sending_message: "Houve um problema no envio da mensagem"
 
     invite_teacher_success: "Os convites foram enviados!"
+
+    back: "voltar"
+
+    edit: "editar"
+    accept: "aceitar"
+    remove: "remover"
 
     errors:
         messages:

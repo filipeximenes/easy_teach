@@ -1,1 +1,37 @@
-<%= render partial: "indices_show/base_indexable_page", locals: { manager: true } %>
+<section class="section">
+  <div class="container">
+    <span class="pull-right">
+      divulgue o seu link: <%= link_to "#{indexable_page_path(current_index.slug, :only_path => false)}", indexable_page_path(current_index.slug, :only_path => false) %>
+    </span>
+    <div class="row-fluid">
+      <aside class="span3 sidebar">
+        <div class="sidebar-widget">
+          <h2 class=""><%= current_indexable.full_name %></h2>
+          <h4>
+            <%= link_to "minhas informações", edit_teacher_path %>
+          </h4>
+          <hr>
+          <h2>Turmas</h2>
+          <ul class="unstyled">
+            <%= render partial: "indices/classroom", collection: current_index.classrooms, locals: { manager: true } %>
+            <li>
+              <%= link_to "+criar turma" %>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <div class="span9">
+        <article class="blog-post">
+          <header class="blog-header">
+            <h2>
+              Mensagens
+            </h2>
+          </header>
+          <ul class="unstyled">
+            <%= render partial: "indices/message_item", collection: current_indexable.all_messages, as: :message %>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

@@ -54,6 +54,14 @@ class Teacher < ActiveRecord::Base
     self.index.classrooms
   end
 
+  def all_messages
+    Message.where("
+      (sender_type = ? AND sender_id = ?) OR
+        (receiver_type = ? AND receiver_id = ?)
+      ", Teacher.to_s, self.id, Teacher.to_s, self.id)
+      .order("created_at DESC")
+  end
+
   def full_name
     self.name + " " + self.last_name
   end
