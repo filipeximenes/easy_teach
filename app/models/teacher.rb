@@ -62,7 +62,11 @@ class Teacher < ActiveRecord::Base
   end
 
   def full_name
-    self.name + " " + self.last_name
+    if self.last_name.nil?
+      self.name
+    else
+      self.name + " " + self.last_name
+    end
   end
 
   def referral_sinup
