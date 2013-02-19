@@ -14,6 +14,9 @@
 class EnrolledEmail < ActiveRecord::Base
   attr_accessible :email, :name, :confirmed
   belongs_to :classroom
+  
+  has_many :sent_messages, as: :sender, class_name: "Message", dependent: :destroy
+  has_many :received_messages, as: :receiver, class_name: "Message", dependent: :destroy
 
   validates_uniqueness_of :email, scope: [:classroom_id],
                             case_sensitive: false
