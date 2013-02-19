@@ -10,7 +10,7 @@ module MessagesHelper
       if @@show_via_classes.include? message.sender.class
         extra_info = " (" + message.sender.classroom.name + ")"
       end
-      message.sender.name + extra_info.to_s
+      message.sender.name.to_s + extra_info.to_s
     end
   end
 
@@ -21,7 +21,7 @@ module MessagesHelper
       if @@show_via_classes.include? message.receiver.class
         extra_info = " (" + message.receiver.classroom.name + ")"
       end
-      message.receiver.name + extra_info.to_s
+      message.receiver.name.to_s + extra_info.to_s
     end
   end
 

@@ -11,7 +11,7 @@ EasyTeach::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { :host => 'http://clateca.com' }
+  config.action_mailer.default_url_options = { :host => 'clateca.com' }
 
   # Settings specified here will take precedence over those in config/application.rb
 
