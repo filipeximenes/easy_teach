@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class InvitedTeachersController < ApplicationController
   
   before_filter :authenticate_teacher!

@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class TeachersController < ApplicationController
   
   before_filter :authenticate_teacher!, except: [:create]
