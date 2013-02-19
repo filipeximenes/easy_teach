@@ -5,11 +5,6 @@ EasyTeach::Application.routes.draw do
 
   resource :teacher, only: [:create, :edit, :update]
   resources :indices_show, only: [:show]
-  resources :indices, only: [] do
-    collection do
-      get :dashboard
-    end
-  end
   resources :classroom_show, only: [:show]
   resources :classrooms, only: [:new, :edit, :create,  :update, :destroy] do
     member do
@@ -17,7 +12,7 @@ EasyTeach::Application.routes.draw do
       get :messages
     end
   end
-  resources :invited_teachers, only: [:new, :create]
+  resources :invited_teachers, only: [:create]
   resources :enrolled_emails, only: [:edit, :create, :update, :destroy] do
     member do
       put :accept
@@ -34,8 +29,12 @@ EasyTeach::Application.routes.draw do
       post '/response', to: "messages#create_response_to", as: "response_to"
     end
   end
+  resources :indices, only: []
 
   match '/home', to: "static_pages#home", as: 'home'
+
+  match '/dashboard', to: "indices#dashboard", as: 'dashboard'
+  match '/referral', to: "indices#referral", as: 'referral'
 
   match '/:indexable_slug', to: "indices_show#indexable_page", as: 'indexable_page', via: :get
   match '/:indexable_slug/:classroom_slug', to: "classroom_show#classroom_page", as: 'classroom_page', via: :get

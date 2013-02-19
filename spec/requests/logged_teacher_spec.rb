@@ -23,7 +23,7 @@ describe "Teacher" do
     end
 
     describe "visiting teacher invitation page" do
-      before { get new_invited_teacher_path }
+      before { get referral_path }
       specify { response.should be_success }
     end
 

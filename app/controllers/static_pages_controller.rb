@@ -12,6 +12,10 @@ class StaticPagesController < ApplicationController
   def home
     @teacher = Teacher.new
     @teacher.build_index
-    @referral = params[:invtf] if !params[:invtf].nil?
+    session[:invtf] = params[:invtf] if !params[:invtf].nil?
+  end
+
+  def referral
+    
   end
 end

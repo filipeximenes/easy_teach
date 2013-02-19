@@ -4,4 +4,7 @@ class IndicesController < ApplicationController
 
   def dashboard
   end
+
+  def referral
+  end
 end

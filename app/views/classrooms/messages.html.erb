@@ -1,4 +1,4 @@
-<% content_for :show_content do %>
+<% content_for :content do %>
   <ul class="unstyled">
     <div class="row-fluid">
       <% if false %>
@@ -14,4 +14,4 @@
   </ul>
 <% end %>
 
-<%= render partial: "classroom_show/base_classroom_page", locals: { manager: true, current_showing: :messages }%>
+<%= render partial: "classrooms/base_classroom_dashboard", locals: { manager: true, current_showing: :messages }%>

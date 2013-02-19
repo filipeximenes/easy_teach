@@ -6,11 +6,11 @@ pt-BR:
       send_paranoid_instructions: Se o seu email existir em nosso banco de dados, você receberá um email com instruções sobre como confirmar sua conta em alguns minutos.
     failure:
       already_authenticated: Você já está autenticado.
-      inactive: A sua conta ainda não foi ativada.
+      inactive: A sua conta ainda não foi ativada, verifique o seu email para ativar a conta.
       invalid: Email ou senha inválidos.
       invalid_token: O token de autenticação não é válido.
       locked: A sua conta está bloqueada.
-      not_found_in_database: 
+      not_found_in_database: Este email não esta cadastrado, por favor crie uma conta
       timeout: A sua sessão expirou, por favor, faça login novamente para continuar.
       unauthenticated: Para continuar, faça login ou registre-se.
       unconfirmed: Antes de continuar, confirme a sua conta.

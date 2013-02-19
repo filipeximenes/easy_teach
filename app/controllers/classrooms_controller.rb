@@ -11,6 +11,10 @@ class ClassroomsController < ApplicationController
   end
 
   def new
+    if current_indexable.free_class_counter <= current_index.classrooms.count
+      flash[:success] = "Você atingiu o seu limite de turmas. Convide outros professores para criar mais turmas."
+      redirect_to referral_path
+    end
   end
 
   def edit
@@ -19,8 +23,7 @@ class ClassroomsController < ApplicationController
   def create
     @classroom = current_index.classrooms.build(params[:classroom])
     if @classroom.save
-      # flash[:success] = "Welcome to the Sample App!"
-      teacher_session[:created_classroom] = @classroom.id
+      flash[:success] = "Turma criada!"
       invite_students
       redirect_to after_classroom_creation_path
     else
@@ -30,7 +33,7 @@ class ClassroomsController < ApplicationController
 
   def update
     if @classroom.update_attributes(params[:classroom])
-      # flash[:success] = "Profile updated"
+      flash[:success] = "Dados atualizados"
       invite_students
       redirect_to classroom_show_path(@classroom)
     else
@@ -45,7 +48,8 @@ class ClassroomsController < ApplicationController
   private
     def after_classroom_creation_path
       if current_index.classrooms.count == 1
-        new_invited_teacher_path
+        teacher_session[:created_classroom] = @classroom.id
+        referral_path
       else
         students_classroom_path(@classroom)
       end

@@ -22,7 +22,7 @@ class TeachersController < ApplicationController
     @teacher = current_teacher
     if @teacher.update_with_password(params[:teacher])
       sign_in(@teacher, :bypass => true)
-      # flash[:success] = "Profile updated"
+      flash[:success] = "Dados atualizados"
       redirect_to @teacher.index
     else
       render 'edit'
@@ -31,10 +31,10 @@ class TeachersController < ApplicationController
 
   private
     def process_referral
-      if !params[:invtf].nil?
-        referral_from = Teacher.find(params[:invtf])
-        logger.info(params[:invtf])
+      if !session[:invtf].nil?
+        referral_from = Teacher.find(session[:invtf])
         if referral_from
+          session.delete :invtf
           referral_from.referral_sinup
         end
       end

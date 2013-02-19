@@ -1,0 +1,13 @@
+defaults: &defaults
+  application_name: "clateca"
+  application_default_email: "contato@clateca.com"
+  application_default_email_password: "contato_clateca"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

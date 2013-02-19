@@ -10,7 +10,7 @@ class IndicesShowController < ApplicationController
     @index = Index.find(params[:id]) || not_found
     flash.keep
     if @index == current_index
-      redirect_to dashboard_indices_path
+      redirect_to dashboard_path
     else
       redirect_to indexable_page_path(@index.slug)
     end

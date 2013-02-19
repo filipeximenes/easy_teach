@@ -1,4 +1,3 @@
-<h2>Turma</h2>
 <%= form_for @classroom || Classroom.new do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
@@ -6,7 +5,9 @@
   <%= f.text_field :name, class: "full-width" %>
 
   <%= f.label :slug %>
-  <%= f.text_field :slug, class: "full-width" %>
+  <div class="form-inline">
+    <%= root_url(:only_path => false) %><%= current_teacher.index.slug %>/<%= f.text_field :slug %>
+  </div>
 
   <div class="text-are-full-width">
     <%= label_tag t(:student_email_list) %>

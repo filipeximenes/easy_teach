@@ -22,10 +22,6 @@
 
   <%= f.label :password_confirmation%>
   <%= f.password_field :password_confirmation, class: "full-width" %>
-
-  <% if @referral %>
-    <%= hidden_field_tag "invtf", @referral %>
-  <% end %>
   <br>
   <%= f.submit t(:send), class: "btn btn-primary" %>
 <% end %>

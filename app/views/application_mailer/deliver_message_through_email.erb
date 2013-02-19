@@ -1,0 +1,23 @@
+Este é um email do Clateca <%= link_to "#{home_path(only_path: false)}", home_path(only_path: false) %>
+<hr>
+<br>
+Você recebeu uma mensagem de <%= @message.sender.name %>. <% if @message.sender.class == EnrolledEmail %>(<%= @message.sender.classroom.name %>) <% end %>
+<br>
+<br>
+<% if !@previous_message_text.nil? %>
+  <hr>
+  Mensagem anterior:
+  <br>
+  <br>
+  <%= @previous_message_text %>
+  <br>
+  <hr>
+  <br>
+<% end %>
+Nova Mensagem:
+<br>
+<br>
+<%= @message.message %>
+<br>
+
+

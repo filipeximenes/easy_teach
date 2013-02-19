@@ -4,14 +4,14 @@ EasyTeach::Application.configure do
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
     :enable_starttls_auto => true, # detects and uses STARTTLS
-    :user_name => "filipeximenes@gmail.com",
-    :password  => "9ZzWULtGFIBLCZbIUfmh3w",
+    :user_name => ENV['MANDRILL_USERNAME'],
+    :password  => ENV['MANDRILL_APIKEY'],
     :authentication => 'login' # Mandrill supports 'plain' or 'login'
   }
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { :host => 'http://easyteach.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'http://clateca.com' }
 
   # Settings specified here will take precedence over those in config/application.rb
 

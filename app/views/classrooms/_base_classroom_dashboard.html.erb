@@ -1,0 +1,53 @@
+<section class="section">
+  <div class="container">
+    <span class="pull-right">
+      divulgue o link da turma: <%= link_to "#{classroom_page_path(current_index.slug, @classroom.slug, :only_path => false)}", classroom_page_path(current_index.slug, @classroom.slug, :only_path => false) %>
+    </span>
+    <span>> <%= link_to t(:home), dashboard_path %> > <%= @classroom.name %></span>
+    <div class="row-fluid">
+      <aside class="span3 sidebar">
+        <div class="sidebar-widget">
+          <h2 class="sidebar-header">
+            <%= @classroom.name %>
+          </h2>
+          <ul class="unstyled">
+            <li>
+              <h3>
+                Professor: <%= @classroom.index.indexable.full_name %>
+              </h3>
+              <h4>
+                Alunos nesta turma: <%= @classroom.enrolled_emails.count %>
+              </h4>
+              <h4>
+                <%= link_to "Editar Turma", edit_classroom_path(@classroom)  %>
+              </h4>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <div class="span9">
+        <article class="blog-post">
+          <header class="row-fluid blog-header">
+            <h2 class="span2">
+              <% if current_showing == :student_list %>
+                Alunos
+              <% else %>
+              <%= link_to "Alunos", students_classroom_path(@classroom) %>
+              <% end %>
+            </h2>
+            <% if false %>
+            <h2 class="span2">
+              <% if current_showing == :messages %>
+                Mensagens
+              <% else %>
+                <%= link_to "Mensagens", messages_classroom_path(@classroom) %>
+              <% end %>
+            </h2>
+            <% end %>
+          </header>
+          <%= yield :content %>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

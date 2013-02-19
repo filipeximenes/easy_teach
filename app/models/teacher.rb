@@ -22,7 +22,7 @@
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
 #  free_class_counter     :integer          default(1)
-#  referral_count         :integer          default(0)
+#  referral_count         :integer          default(1)
 #
 
 # Include default devise modules. Others available are:
@@ -38,15 +38,14 @@ class Teacher < ActiveRecord::Base
                   :password, :password_confirmation,
                   :remember_me, :index_attributes
 
-  has_one :index, as: :indexable, :dependent => :destroy
-  has_many :invited_teachers
-  has_many :sent_messages, as: :sender, class_name: "Message"
-  has_many :received_messages, as: :receiver, class_name: "Message"
+  has_one :index, as: :indexable, dependent: :destroy
+  has_many :invited_teachers, dependent: :destroy
+  has_many :sent_messages, as: :sender, class_name: "Message", dependent: :destroy
+  has_many :received_messages, as: :receiver, class_name: "Message", dependent: :destroy
 
   accepts_nested_attributes_for :index
 
   validates :name, presence: true
-  validates :last_name, presence: true
   validates :index, presence: true
   validates :free_class_counter, :inclusion => 1..5
 

@@ -1,9 +1,9 @@
 class MessagesController < ApplicationController
   include MessageAuthorization
 
-  before_filter :authorize_message_to, only: [:new_message_to, :create_message_to]
   before_filter :authorize_visualization, only: [:show, :new_response_to]
-  before_filter :authorize_create_response_to, only: [:create_response_to]
+  before_filter :extract_receiver, only: [:create_response_to]
+  before_filter :authorize_send_to, only: [:new_message_to, :create_message_to, :create_response_to]
 
   def show
   end
@@ -25,12 +25,14 @@ class MessagesController < ApplicationController
   def new_response_to
     @response = Message.new
     if @showing_message.sender.class == EnrolledEmail
-      @messageable = @showing_message.sender.classroom
+      @classroom_messageable = @showing_message.sender.classroom
     end
   end
 
   def create_response_to
-    @response = Message.new(sender: current_logged, receiver: messageable, message: params[:message])
+    @response = Message.new(sender: current_logged, receiver: receiver,
+                            message: params[:message],
+                            previous_message_text: @showing_message.message)
     if @response.save
       flash[:success] = t(:successfully_sent_message)
       redirect_to get_redirect_url

@@ -12,8 +12,8 @@
 
 class Index < ActiveRecord::Base
   attr_accessible :slug
-  belongs_to :indexable, :polymorphic => true
-  has_many :classrooms
+  belongs_to :indexable, polymorphic: true, dependent: :destroy
+  has_many :classrooms, dependent: :destroy
 
   validates :slug, presence: true, 
                     length: { maximum: 50, minimun: 3 },

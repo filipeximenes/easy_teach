@@ -11,9 +11,9 @@
   </div>
   <%= link_to t(:back), :back %>
   <div class="pull-right">
-    <% if defined? messageable and messageable %>
-      <%= hidden_field_tag "messageable_group_id", @messageable.id %>
-      <%= hidden_field_tag "messageable_group_type", @messageable.class.to_s %>
+    <% if defined? classroom_messageable and classroom_messageable %>
+      <%= hidden_field_tag "messageable_group_id", @classroom_messageable.id %>
+      <%= hidden_field_tag "messageable_group_type", @classroom_messageable.class.to_s %>
       <%= submit_tag t(:respond_to_classroom), name: :response_to_messageable_group, class: "btn btn-primary" %>
     <% end %>
     <%= submit_tag t(:respond), class: "btn btn-primary" %>

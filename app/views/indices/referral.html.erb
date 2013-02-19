@@ -1,0 +1,46 @@
+<section class="section alt" id="">
+  <div class="container">
+    <!-- <div class="span12"> -->
+      <div class="well span9 offset1">
+        <div class="row-fluid">
+          <div class="span6">
+            <p>
+              Por enquanto você tem <b><%= current_logged.classrooms.count %></b> turma(s) criada(s) e pode criar no máximo <b><%= current_logged.free_class_counter %></b>.
+            </p>
+            <p>
+              Convide outros professores e crie mais turmas gratuitamente.
+            </p> 
+            <p>
+              A cada <b>4 professores</b> que se inscreverem por indicação sua, você ganha uma turma.
+            </p>  
+            <p>
+              Faltam <b><%= 4 - current_logged.referral_count %> inscrições indicadas</b> para você conseguir mais uma turma.
+            </p> 
+            <br>
+            <br>
+            <br>
+            <%= link_to "voltar para minha página", dashboard_path %>
+          </div>
+          <div class="span6" style="">
+            <%= form_tag invited_teachers_path do %>
+              <div class="text-are-full-width">
+                <%= label_tag "Convide outros professores:" %>
+                <%= text_area_tag 'emails', nil, rows: 5, placeholder:"exemplo@email.com, outro@gmail.com, mais_um@servidor.la" %>
+              </div>
+              <div class="pull-right">
+                <%= submit_tag 'convidar', class: "btn btn-primary" %>
+              </div>
+              <br>
+              <br>
+              <div style="text-align: center">
+                <h2 >OU</h2>
+                <h4 >Compartilhe o link:</h4>
+                <%= link_to "#{home_path(invtf: current_teacher.id,only_path: false)}", home_path(invtf: current_teacher.id,only_path: false) %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</section>

@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(:version => 20130207235431) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.integer  "free_class_counter",     :default => 1
-    t.integer  "referral_count",         :default => 0
+    t.integer  "referral_count",         :default => 1
   end
 
   add_index "teachers", ["confirmation_token"], :name => "index_teachers_on_confirmation_token", :unique => true

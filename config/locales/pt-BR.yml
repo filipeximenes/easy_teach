@@ -20,7 +20,7 @@ pt-BR:
     respond_to_classroom: "responder para toda turma"
 
     student_email_list: "Convidar alunos"
-    add_students: "adicionar alunos"
+    add_students: "+adicionar alunos"
 
     enroled_email_not_found: "Este email não está cadastrado nesta turma, use outro ou inscreva-se"
     successfully_sent_message: "Sua mensagem foi enviada com sucesso"

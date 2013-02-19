@@ -15,9 +15,10 @@ class Classroom < ActiveRecord::Base
 
   belongs_to :index
   has_one :teacher, through: :index, source: :indexable, source_type: Teacher
-  has_many :enrolled_emails
+  has_many :enrolled_emails, dependent: :destroy
   has_many :messages, as: :receiver, class_name: "Message", 
-            order: "created_at DESC"
+            order: "created_at DESC",
+            dependent: :destroy
 
   validates_uniqueness_of :slug, scope: [:index_id],
                                   case_sensitive: false

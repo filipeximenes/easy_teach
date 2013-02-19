@@ -14,7 +14,8 @@
         <div class="nav-collapse collapse">
           <ul class="nav pull-right">
             <% if teacher_signed_in? %>
-              <li class=""><%= link_to "Home", indices_show_path(current_index) %>
+              <li class=""><%= link_to "crie turmas grátis!", referral_path, style: "color: blue" %>
+              <li class=""><%= link_to "Home", dashboard_path %>
               <li class=""><%= link_to "Sair", destroy_teacher_session_path, :method => :delete %>
             <% else %>
               <li class=""><%= link_to "Entrar", teacher_session_path %></li>

@@ -22,7 +22,7 @@
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
 #  free_class_counter     :integer          default(1)
-#  referral_count         :integer          default(0)
+#  referral_count         :integer          default(1)
 #
 
 require 'spec_helper'

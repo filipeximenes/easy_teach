@@ -1,2 +1,3 @@
-O professor <%= @sender.full_name %> lhe convidou para conhecer a plataforma suporte ao ensino ______
-clique <%= link_to "aqui", home_path(only_path: false, invtf: @sender.id) %>
+Olá, o professor <%= @sender.name %> lhe convidou para fazer parte do Clateca.
+Clateca é uma plataforma que lhe permite se comunicar com seus alunos num ambiente on-line.
+Para conhecer mais, visite <%= link_to "#{home_path(invtf: @sender.id,only_path: false)}", home_path(invtf: @sender.id, only_path: false) %>.

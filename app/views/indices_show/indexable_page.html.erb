@@ -1,24 +1,12 @@
-<section class="section">
+<section class="section alt">
   <div class="container">
-    <div class="row-fluid">
-      <aside class="span3 sidebar">
-        <div class="sidebar-widget">
-          <h2 class="sidebar-header"><%= @indexable.full_name %></h2>
-          <ul class="unstyled">
-          </ul>
-        </div>
-      </aside>
-      <div class="span9">
-        <article class="blog-post">
-          <header class="blog-header">
-            <h2>
-              Turmas
-            </h2>
-          </header>
-          <ul class="unstyled">
-            <%= render partial: "classrooms/classroom", collection: @index.classrooms %>
-          </ul>
-        </article>
+    <div class="modal modal-login">
+      <div class="well">
+        <h3 class=""><small>Professor:</small> <%= @indexable.full_name %></h3>
+        <h2><small>Turmas</small></h2>
+        <ul class="unstyled">
+          <%= render partial: "indices_show/classroom", collection: @index.classrooms %>
+        </ul>
       </div>
     </div>
   </div>

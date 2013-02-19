@@ -1,11 +1,5 @@
 <section class="section">
   <div class="container">
-    <% if defined? manager and manager %>
-      <span class="pull-right">
-        divulgue o link da turma: <%= link_to "#{classroom_page_path(current_index.slug, @classroom.slug, :only_path => false)}", classroom_page_path(current_index.slug, @classroom.slug, :only_path => false) %>
-      </span>
-      <span><%= link_to t(:home), dashboard_indices_path(current_index) %> > <%= @classroom.name %></span>
-    <% end %>
     <div class="row-fluid">
       <aside class="span3 sidebar">
         <div class="sidebar-widget">
@@ -15,25 +9,16 @@
           <ul class="unstyled">
             <li>
               <h3>
-                Professor: <%= @classroom.index.indexable.full_name %>
+                Professor: <%= link_to @classroom.index.indexable.full_name, indexable_page_path(@classroom.index.slug) %>
               </h3>
               <h4>
                 Alunos nesta turma: <%= @classroom.enrolled_emails.count %>
               </h4>
-              <% if defined? manager and manager %>
-                <h4>
-                  <%= link_to "Editar Turma", edit_classroom_path(@classroom)  %>
-                </h4>
-              <% end %>
             </li>
           </ul>
         </div>
       </aside>
-      <% if defined? manager and manager %>
-        <%= render partial: "classrooms/teacher_classroom_page", locals: { current_showing: current_showing } %>
-      <% else %>
-        <%= render partial: "classroom_show/student_classroom_page", locals: { current_showing: current_showing } %>
-      <% end %>
+      <%= yield :content %>
     </div>
   </div>
 </section>

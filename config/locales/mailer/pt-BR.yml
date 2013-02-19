@@ -1,2 +1,7 @@
 pt-BR:
-    invite_teacher_subject: "Convite"
+    invite_teacher_subject: Convite
+    new_message_subject: Nova Mensagem
+
+    wellcome_message: Bem vindo, você agora já pode se comunicar com seus alunos de forma fácil. Adicione todos em uma turma ou divulgue o link no canto superior esquerdo da página de mensagens para receber e responder a dúvidas. Você também pode enviar email para todos da turma com apenas um clique.
+    how_to_create_a_classroom: Criar uma turma é muito simples, basta clicar no botão '+criar turma' no lado esquerdo da página de mensagens.
+    invite_other_teacher_to_earn: Convide professores e ganhe mais turmas, basta clicar em 'CRIE TURMAS GRÁTIS!' na barra superior do site

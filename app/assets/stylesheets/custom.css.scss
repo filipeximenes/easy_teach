@@ -37,3 +37,8 @@ textarea {
 .text-are-full-width { 
   padding-right: 10px; 
 }
+
+.well [class^="span"] + [class^="span"] {
+    border-left: 1px solid #e3e3e3;
+    padding-left: 30px;
+}

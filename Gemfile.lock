@@ -55,6 +55,7 @@ GEM
       warden (~> 1.2.1)
     diff-lcs (1.1.3)
     erubis (2.7.0)
+    excon (0.15.5)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.1.0)
@@ -74,6 +75,9 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mandrill-api (1.0.14)
+      excon (~> 0.15.4)
+      json (~> 1.7.4)
     mime-types (1.19)
     multi_json (1.5.0)
     nokogiri (1.5.6)
@@ -160,6 +164,7 @@ DEPENDENCIES
   devise
   factory_girl_rails (= 4.1.0)
   jquery-rails (= 2.0.2)
+  mandrill-api
   pg
   rails (= 3.2.11)
   rspec-rails (= 2.11.0)

@@ -1,12 +1,14 @@
 EasyTeach::Application.configure do
+  ENV['MANDRILL_USERNAME'] = "filipeximenes@gmail.com"
+  ENV['MANDRILL_APIKEY'] = "9ZzWULtGFIBLCZbIUfmh3w"
 
   # config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
     :enable_starttls_auto => true, # detects and uses STARTTLS
-    :user_name => "filipeximenes@gmail.com",
-    :password  => "9ZzWULtGFIBLCZbIUfmh3w",
+    :user_name => ENV['MANDRILL_USERNAME'],
+    :password  => ENV['MANDRILL_APIKEY'],
     :authentication => 'login' # Mandrill supports 'plain' or 'login'
   }
 

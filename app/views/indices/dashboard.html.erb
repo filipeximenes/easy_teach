@@ -3,6 +3,7 @@
     <span class="pull-right">
       divulgue o seu link: <%= link_to "#{indexable_page_path(current_index.slug, :only_path => false)}", indexable_page_path(current_index.slug, :only_path => false) %>
     </span>
+    <span>> Home</span>
     <div class="row-fluid">
       <aside class="span3 sidebar">
         <div class="sidebar-widget">
@@ -15,7 +16,7 @@
           <ul class="unstyled">
             <%= render partial: "indices/classroom", collection: current_index.classrooms, locals: { manager: true } %>
             <li>
-              <%= link_to "+criar turma" %>
+              <%= link_to "+nova turma", new_classroom_path %>
             </li>
           </ul>
         </div>
