@@ -14,8 +14,8 @@
 #
 
 class Message < ActiveRecord::Base
-  attr_accessible :answered, :message, :sender, :receiver, :previous_message_text
-  attr_accessor :previous_message_text
+  attr_accessible :answered, :message, :sender, :receiver, :previous_message_text, :no_email_message
+  attr_accessor :previous_message_text, :no_email_message
   belongs_to :sender, :polymorphic => true
   belongs_to :receiver, :polymorphic => true
 
@@ -25,14 +25,16 @@ class Message < ActiveRecord::Base
 
   private
     def send_email_message
-      if receiver.class == Classroom
-        receiver.enrolled_emails.each{ |item|
-          ApplicationMailer.deliver_message_through_email(message: self,
-            to_email: item.email).deliver
-        }
-      else
-        ApplicationMailer.deliver_message_through_email(message: self, to_email: receiver.email,
-          previous_message_text: previous_message_text).deliver
+      if no_email_message.nil? or !no_email_message
+        if receiver.class == Classroom
+          receiver.enrolled_emails.each{ |item|
+            ApplicationMailer.deliver_message_through_email(message: self,
+              to_email: item.email).deliver
+          }
+        else
+          ApplicationMailer.deliver_message_through_email(message: self, to_email: receiver.email,
+            previous_message_text: previous_message_text).deliver
+        end
       end
     end
 end
