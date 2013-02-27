@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'thin'
 gem 'devise'
 gem 'jquery-rails', '2.0.2'
 gem 'bootstrap-sass', '2.1'
