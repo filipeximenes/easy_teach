@@ -13,7 +13,7 @@ module MessageAuthorization
   end
 
   def showing_message
-    @showing_message ||= Message.find(params[:id])
+    @showing_message ||= Message.find(params[:id], include: [:sender, :receiver])
   end
 
   def authorize_send_to

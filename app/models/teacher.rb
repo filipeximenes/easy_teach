@@ -58,7 +58,7 @@ class Teacher < ActiveRecord::Base
       (sender_type = ? AND sender_id = ?) OR
         (receiver_type = ? AND receiver_id = ?)
       ", Teacher.to_s, self.id, Teacher.to_s, self.id)
-      .order("created_at DESC")
+      .order("created_at DESC").all(include: [:sender, :receiver])
   end
 
   def full_name
